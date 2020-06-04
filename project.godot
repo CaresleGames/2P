@@ -22,7 +22,7 @@ _global_script_class_icons={
 
 config/name="Plataformero"
 run/main_scene="res://src/escenas/Test.tscn"
-config/icon="res://icon.png"
+config/icon="res://icono.png"
 
 [autoload]
 
@@ -36,6 +36,14 @@ window/size/test_width=480
 window/size/test_height=320
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[input]
+
+ui_salto={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
