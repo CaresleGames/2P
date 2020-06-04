@@ -12,6 +12,9 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+velocidad = 200
+aceleracion = 25.0
+gravedad = 200
 
 [node name="SprPlayer" type="Sprite" parent="."]
 texture = ExtResource( 1 )
