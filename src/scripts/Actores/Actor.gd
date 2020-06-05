@@ -12,6 +12,8 @@ export var friccion : float = 0
 export var gravedad := 250
 export var salto := 120
 
+var movimiento := Vector2.ZERO
+var direccion := 0
 
 func _ready() -> void:
 	if tipo == Tipo.JUGADOR:

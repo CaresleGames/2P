@@ -1,9 +1,9 @@
 extends Actor
 
 
-var movimiento := Vector2.ZERO
+
 var distancia : float = 0
-var direccion := 0
+
 var puedo_saltar : bool = false
 
 

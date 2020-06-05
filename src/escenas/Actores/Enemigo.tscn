@@ -14,6 +14,8 @@ __meta__ = {
 "_edit_group_": true
 }
 tipo = 1
+velocidad = 10
+aceleracion = 2.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -4 )
