@@ -1,21 +1,10 @@
-extends KinematicBody2D
+extends Actor
 
-
-const SUELO := Vector2.UP
-
-export var velocidad : int = 0
-export var aceleracion : float = 0
-export var friccion : float = 0
-export var gravedad := 98
-export var salto := 100
 
 var movimiento := Vector2.ZERO
 var distancia : float = 0
 var direccion := 0
 var puedo_saltar : bool = false
-
-func _ready() -> void:
-	$".".modulate = Colores.COLOR_JUGADOR
 
 
 func _physics_process(_delta: float) -> void:
