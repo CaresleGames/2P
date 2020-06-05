@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
+[ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=3]
+
+[node name="Nivel3" type="Node2D"]
+
+[node name="Fondo" parent="." instance=ExtResource( 2 )]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262154, 3, 0, 262155, 4, 0, 327684, 3, 0, 327685, 13, 0, 327686, 4, 0, 327690, 10, 0, 327691, 11, 0, 393219, 3, 0, 393223, 13, 0, 393224, 13, 0, 393225, 13, 0, 393228, 4, 0, 458755, 10, 0, 458765, 4, 0, 524289, 0, 0, 524290, 1, 0, 524291, 14, 0, 524292, 14, 0, 524293, 14, 0, 524294, 14, 0, 524295, 14, 0, 524296, 14, 0, 524297, 14, 0, 524298, 14, 0, 524299, 14, 0, 524300, 14, 0, 524301, 14, 0, 524302, 2, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 32, 128 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Nivel 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
