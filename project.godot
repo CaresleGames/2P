@@ -27,6 +27,7 @@ config/icon="res://icono.png"
 [autoload]
 
 Colores="*res://src/scripts/autoload/Colores.gd"
+ControlJuego="*res://src/scripts/autoload/ControlJuego.gd"
 
 [display]
 

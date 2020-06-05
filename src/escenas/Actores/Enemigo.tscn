@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/scripts/Actores/Enemigo.gd" type="Script" id=1]
 [ext_resource path="res://assets/player.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 4, 4 )
+extents = Vector2( 2, 2 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3, 3 )
 
 [node name="Enemigo" type="KinematicBody2D"]
 collision_layer = 4
-collision_mask = 9
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -22,5 +24,15 @@ position = Vector2( 0, -4 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -4 )
+position = Vector2( 0, -2 )
 shape = SubResource( 1 )
+
+[node name="JugadorMuerte" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JugadorMuerte"]
+modulate = Color( 0.917647, 0.129412, 0.258824, 1 )
+position = Vector2( 0, -3 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="JugadorMuerte" to="." method="_on_JugadorMuerte_body_entered"]

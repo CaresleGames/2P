@@ -1,13 +1,17 @@
 extends Actor
 
-
+export var vidas : int = 0
 
 var distancia : float = 0
-
 var puedo_saltar : bool = false
-
+var vivo : bool = true
 
 func _physics_process(_delta: float) -> void:
+	if not vivo:
+		vidas -= 1
+		if vidas <= 1:
+			get_tree().reload_current_scene()
+	
 	mover()
 
 

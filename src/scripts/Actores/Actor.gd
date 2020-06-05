@@ -15,6 +15,8 @@ export var salto := 120
 var movimiento := Vector2.ZERO
 var direccion := 0
 
+onready var coordenas : Vector2 = $".".global_position
+
 func _ready() -> void:
 	if tipo == Tipo.JUGADOR:
 		$".".modulate = Colores.COLOR_JUGADOR
