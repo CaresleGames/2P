@@ -18,6 +18,8 @@ func _process(_delta: float) -> void:
 		print(value)
 	if jugador.vidas <= 0:
 		gui_gameover.show()
+		jugador.hide()
+		enemigo.hide()
 
 
 func _reaparecer_inicio() -> void:

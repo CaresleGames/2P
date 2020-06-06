@@ -14,3 +14,4 @@ func _on_JugadorMuerte_body_entered(body: Node) -> void:
 
 func _reacomodar() -> void:
 	position = coordenas_inicio
+	$".".show()
