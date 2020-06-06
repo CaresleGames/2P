@@ -11,3 +11,7 @@ func _on_JugadorMuerte_body_entered(body: Node) -> void:
 	body.vivo = false
 	print(body.vidas)
 	ControlJuego.emit_signal("reaparecer_inicio")
+
+
+func _reacomodar() -> void:
+	position = coordenas_inicio

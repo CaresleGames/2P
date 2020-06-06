@@ -16,4 +16,6 @@ func _process(_delta: float) -> void:
 
 func _reaparecer_inicio() -> void:
 	var jugador = get_tree().get_nodes_in_group("player")[0]
+	var enemigo = get_tree().get_nodes_in_group("enemigo")[0]
 	jugador._reacomodar()
+	enemigo._reacomodar()

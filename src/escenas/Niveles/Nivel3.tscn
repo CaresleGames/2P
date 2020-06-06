@@ -18,6 +18,7 @@ tile_data = PoolIntArray( 262154, 3, 0, 262155, 4, 0, 327684, 3, 0, 327685, 13, 
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 32, 128 )
+vidas = 0
 
 [node name="Nivel" type="Label" parent="."]
 margin_right = 40.0

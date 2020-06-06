@@ -9,7 +9,9 @@ extents = Vector2( 2, 2 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3, 3 )
 
-[node name="Enemigo" type="KinematicBody2D"]
+[node name="Enemigo" type="KinematicBody2D" groups=[
+"enemigo",
+]]
 collision_layer = 4
 script = ExtResource( 1 )
 __meta__ = {
