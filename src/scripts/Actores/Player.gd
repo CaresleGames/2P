@@ -6,6 +6,7 @@ var distancia : float = 0
 var puedo_saltar : bool = false
 var vivo : bool = true
 
+
 func _physics_process(_delta: float) -> void:
 	if not vivo:
 		pass
@@ -35,3 +36,12 @@ func mover_y() -> void:
 		puedo_saltar = true
 	if Input.is_action_just_pressed("ui_salto"):
 		movimiento.y = -salto
+
+
+func _reacomodar() -> void:
+	position = coordenas_inicio
+	vidas -= 1
+	if vidas <= 0:
+		get_tree().get_nodes_in_group("game_over")[0].show()
+	else:
+		show()

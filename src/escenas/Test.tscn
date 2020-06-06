@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/escenas/Niveles/Nivel2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/escenas/Actores/Enemigo.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/escenas/objetos/GameOver.tscn" type="PackedScene" id=7]
 
 [node name="Test" type="Node2D"]
 
@@ -17,6 +18,7 @@ position = Vector2( 144, 128 )
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 84, 112 )
 collision_mask = 0
+vidas = 0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
@@ -37,3 +39,7 @@ text = "Nivel 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GameOver" parent="." instance=ExtResource( 7 )]
+margin_right = 240.0
+margin_bottom = 160.0

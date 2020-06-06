@@ -22,3 +22,4 @@ func _ready() -> void:
 		$".".modulate = Colores.COLOR_JUGADOR
 	if tipo == Tipo.ENEMIGO:
 		$".".modulate = Colores.COLOR_ENEMIGO
+
