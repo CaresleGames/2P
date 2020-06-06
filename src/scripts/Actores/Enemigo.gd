@@ -8,7 +8,6 @@ func _physics_process(_delta: float) -> void:
 
 func _on_JugadorMuerte_body_entered(body: Node) -> void:
 	body.hide()
-	body.vivo = false
 	print(body.vidas)
 	ControlJuego.emit_signal("reaparecer_inicio")
 

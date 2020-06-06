@@ -1,6 +1,8 @@
 extends Label
 
+func _ready() -> void:
+	$".".hide()
 
 
 func _on_Button_pressed() -> void:
-	pass
+	ControlJuego.emit_signal("reinicio")

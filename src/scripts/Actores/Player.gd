@@ -1,16 +1,14 @@
 extends Actor
 
-export var vidas : int = 0
+export var vidas_maximas : int = 0
 
 var distancia : float = 0
 var puedo_saltar : bool = false
-var vivo : bool = true
+
+onready var vidas := vidas_maximas
 
 
 func _physics_process(_delta: float) -> void:
-	if not vivo:
-		pass
-	
 	mover()
 
 
@@ -41,7 +39,5 @@ func mover_y() -> void:
 func _reacomodar() -> void:
 	position = coordenas_inicio
 	vidas -= 1
-	if vidas <= 0:
-		get_tree().get_nodes_in_group("game_over")[0].show()
-	else:
+	if vidas >= 1:
 		show()
