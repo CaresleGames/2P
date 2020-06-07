@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/escenas/Niveles/NivelEtiqueta.tscn" type="PackedScene" id=4]
 
 [node name="Nivel3" type="Node2D"]
 
@@ -19,10 +20,4 @@ tile_data = PoolIntArray( 262154, 3, 0, 262155, 4, 0, 327684, 3, 0, 327685, 13, 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 32, 128 )
 
-[node name="Nivel" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "Nivel 3"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Nivel" parent="." instance=ExtResource( 4 )]

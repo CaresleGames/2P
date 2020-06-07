@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/escenas/Niveles/Nivel3.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/escenas/Niveles/NivelEtiqueta.tscn" type="PackedScene" id=6]
 
 [node name="Nivel2" type="Node2D"]
 
@@ -18,17 +19,11 @@ collision_mask = 5
 format = 1
 tile_data = PoolIntArray( 458753, 0, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 2, 0 )
 
-[node name="Nivel" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "Nivel 2"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 32, 112 )
 
 [node name="Meta" parent="." instance=ExtResource( 4 )]
 position = Vector2( 192, 104 )
 siguiente_nivel = ExtResource( 5 )
+
+[node name="Nivel" parent="." instance=ExtResource( 6 )]
