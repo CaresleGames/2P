@@ -27,4 +27,7 @@ func _reacomodar() -> void:
 
 
 func muerte_pinchos() -> void:
+	var padre : Node2D = get_parent()
+	position = padre.global_position
 	vivo = false
+
