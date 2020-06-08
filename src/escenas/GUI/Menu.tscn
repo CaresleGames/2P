@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/scripts/GUI/Menu.gd" type="Script" id=1]
-[ext_resource path="res://src/escenas/Test.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/escenas/Niveles/Nivel1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=3]
 
 [node name="Menu" type="Control"]

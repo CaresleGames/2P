@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
+[ext_resource path="res://src/escenas/objetos/GameOver.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/escenas/Niveles/NivelEtiqueta.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/escenas/Niveles/Nivel2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=8]
+
+[node name="Nivel1" type="Node2D"]
+
+[node name="Fondo" parent="." instance=ExtResource( 7 )]
+
+[node name="Player" parent="." instance=ExtResource( 8 )]
+position = Vector2( 96, 120 )
+collision_mask = 0
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 8
+collision_mask = 5
+format = 1
+tile_data = PoolIntArray( 327684, 5, 0, 327690, 5, 0, 393220, 12, 0, 393226, 12, 0, 458756, 12, 0, 458762, 12, 0, 524292, 7, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 8, 0 )
+
+[node name="Meta" parent="." instance=ExtResource( 4 )]
+position = Vector2( 152, 120 )
+siguiente_nivel = ExtResource( 6 )
+
+[node name="Nivel" parent="." instance=ExtResource( 5 )]
+
+[node name="GameOver" parent="." instance=ExtResource( 3 )]
+margin_right = 240.0
+margin_bottom = 160.0

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/escenas/Niveles/NivelEtiqueta.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/escenas/Actores/Enemigo.tscn" type="PackedScene" id=6]
 
 [node name="Nivel3" type="Node2D"]
 
@@ -15,9 +17,15 @@ cell_size = Vector2( 16, 16 )
 collision_layer = 8
 collision_mask = 5
 format = 1
-tile_data = PoolIntArray( 262154, 3, 0, 262155, 4, 0, 327684, 3, 0, 327685, 13, 0, 327686, 4, 0, 327690, 10, 0, 327691, 11, 0, 393219, 3, 0, 393223, 13, 0, 393224, 13, 0, 393225, 13, 0, 393228, 4, 0, 458755, 10, 0, 458765, 4, 0, 524289, 0, 0, 524290, 1, 0, 524291, 14, 0, 524292, 14, 0, 524293, 14, 0, 524294, 14, 0, 524295, 14, 0, 524296, 14, 0, 524297, 14, 0, 524298, 14, 0, 524299, 14, 0, 524300, 14, 0, 524301, 14, 0, 524302, 2, 0 )
+tile_data = PoolIntArray( 458753, 5, 0, 458757, 5, 0, 524289, 7, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 14, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 2, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 32, 128 )
+position = Vector2( 40, 124 )
 
 [node name="Nivel" parent="." instance=ExtResource( 4 )]
+
+[node name="Enemigo" parent="." instance=ExtResource( 6 )]
+position = Vector2( 168, 124 )
+
+[node name="Meta" parent="." instance=ExtResource( 5 )]
+position = Vector2( 184, 120 )
