@@ -2,6 +2,9 @@ extends Actor
 
 var vivo := true
 
+func _ready() -> void:
+	direccion = -1
+
 
 func _physics_process(delta: float) -> void:
 	if vivo:
@@ -10,7 +13,13 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			movimiento.y = 0
 		
-		movimiento.x = max(movimiento.x - aceleracion, -velocidad)
+		if is_on_wall():
+			direccion *= -1
+		
+		if direccion == 1:
+			movimiento.x = min(movimiento.x + aceleracion, velocidad)
+		else:
+			movimiento.x = max(movimiento.x - aceleracion, -velocidad)
 		movimiento = move_and_slide(movimiento, SUELO)
 
 

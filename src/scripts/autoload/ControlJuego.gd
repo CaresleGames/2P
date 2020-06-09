@@ -23,7 +23,8 @@ func _process(_delta: float) -> void:
 		if jugador.vidas <= 0:
 			gui_gameover.show()
 			jugador.hide()
-			enemigo.hide()
+			if get_tree().get_nodes_in_group("enemigo").size() > 0:
+				enemigo.hide()
 	if Input.is_action_just_pressed("ui_accept"):
 		var value = get_tree().reload_current_scene()
 		print(value)
@@ -36,8 +37,8 @@ func _reaparecer_inicio() -> void:
 
 
 func _reinicio() -> void:
-	print('reinicio')
 	gui_gameover.hide()
 	jugador.vidas = jugador.vidas_maximas + 1
 	jugador._reacomodar()
-	enemigo._reacomodar()
+	if get_tree().get_nodes_in_group("enemigo").size() > 0:
+		enemigo._reacomodar()
