@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/escenas/Niveles/NivelEtiqueta.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/escenas/Actores/Enemigo.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/escenas/objetos/GameOver.tscn" type="PackedScene" id=7]
 
 [node name="Nivel3" type="Node2D"]
 
@@ -29,3 +30,7 @@ position = Vector2( 168, 124 )
 
 [node name="Meta" parent="." instance=ExtResource( 5 )]
 position = Vector2( 184, 120 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 7 )]
