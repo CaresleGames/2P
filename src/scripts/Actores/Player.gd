@@ -3,7 +3,7 @@ extends Actor
 export var vidas_maximas : int = 0
 
 var distancia : float = 0
-var puedo_saltar : bool = false
+var puedo_saltar : bool = true
 
 onready var vidas := vidas_maximas
 
@@ -32,8 +32,12 @@ func mover_y() -> void:
 	if is_on_floor():
 		movimiento.y = 0
 		puedo_saltar = true
+	if not is_on_floor():
+		puedo_saltar = false
+		
 	if Input.is_action_just_pressed("ui_salto"):
-		movimiento.y = -salto
+		if puedo_saltar:
+			movimiento.y = -salto
 
 
 func _reacomodar() -> void:
@@ -41,3 +45,4 @@ func _reacomodar() -> void:
 	vidas -= 1
 	if vidas >= 1:
 		show()
+
