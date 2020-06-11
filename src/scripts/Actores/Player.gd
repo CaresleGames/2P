@@ -27,17 +27,33 @@ func mover() -> void:
 
 
 func mover_y() -> void:
-	movimiento.y += gravedad * get_physics_process_delta_time()
-	
+	if not is_on_floor():
+		movimiento.y += gravedad * get_physics_process_delta_time()
+
 	if is_on_floor():
 		movimiento.y = 0
 		puedo_saltar = true
-	if not is_on_floor():
-		puedo_saltar = false
+	if $Izquierda.is_colliding():
+		print('true izquierda')
+
+	if not is_on_floor() and $Izquierda.is_colliding() and not $Centro.is_colliding() and not $Derecha.is_colliding():
+		$CoyoteJump.start()
+		coyote_jump()
 		
 	if Input.is_action_just_pressed("ui_salto"):
-		if puedo_saltar:
+		if puedo_saltar and is_on_floor():
 			movimiento.y = -salto
+
+
+func coyote_jump() -> void:
+	print('coyote')
+	print_debug(puedo_saltar)
+	
+	if Input.is_action_just_pressed("ui_salto") and not $CoyoteJump.is_stopped():
+		movimiento.y = -salto
+	if $CoyoteJump.is_stopped():
+		puedo_saltar = false
+		print_debug('Terminado')
 
 
 func _reacomodar() -> void:
