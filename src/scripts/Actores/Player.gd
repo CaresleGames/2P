@@ -41,9 +41,14 @@ func mover_y() -> void:
 		if Input.is_action_just_pressed("ui_salto"):
 			movimiento.y = -salto
 			$CoyoteJump.stop()
+	if $Izquierda.is_colliding() and $Centro.is_colliding() and $Derecha.is_colliding():
+		if Input.is_action_just_pressed("ui_salto"):
+			movimiento.y = -salto
 	if Input.is_action_just_pressed("ui_salto"):
 		if puedo_saltar and is_on_floor():
 			movimiento.y = -salto
+	if Input.is_action_pressed("ui_salto"):
+		pass
 
 
 #func coyote_jump() -> void:
