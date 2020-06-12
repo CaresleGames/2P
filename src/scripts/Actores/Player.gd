@@ -1,6 +1,7 @@
 extends Actor
 
 export var vidas_maximas : int = 0
+export var aceleracion_salto : float = 0
 
 var distancia : float = 0
 var puedo_saltar : bool = true
@@ -47,8 +48,11 @@ func mover_y() -> void:
 	if Input.is_action_just_pressed("ui_salto"):
 		if puedo_saltar and is_on_floor():
 			movimiento.y = -salto
+			$TiempoSalto.start()
 	if Input.is_action_pressed("ui_salto"):
-		pass
+		
+		if not $TiempoSalto.is_stopped():
+			movimiento.y = -aceleracion_salto
 
 
 #func coyote_jump() -> void:
