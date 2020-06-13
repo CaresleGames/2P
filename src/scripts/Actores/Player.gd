@@ -55,17 +55,6 @@ func mover_y() -> void:
 			movimiento.y = -aceleracion_salto
 
 
-#func coyote_jump() -> void:
-#	print('coyote')
-#	print_debug(puedo_saltar)
-#
-#	if Input.is_action_just_pressed("ui_salto") and not $CoyoteJump.is_stopped():
-#		movimiento.y = -salto
-#	if $CoyoteJump.is_stopped():
-#		puedo_saltar = false
-#		print_debug('Terminado')
-
-
 func _reacomodar() -> void:
 	position = coordenas_inicio
 	vidas -= 1

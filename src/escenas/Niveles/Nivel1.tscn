@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
+[ext_resource path="res://src/escenas/objetos/Fin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/escenas/objetos/GameOver.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/escenas/Niveles/NivelEtiqueta.tscn" type="PackedScene" id=5]
@@ -33,3 +34,6 @@ siguiente_nivel = ExtResource( 6 )
 [node name="GameOver" parent="." instance=ExtResource( 3 )]
 margin_right = 240.0
 margin_bottom = 160.0
+
+[node name="Fin" parent="." instance=ExtResource( 2 )]
+position = Vector2( 120, 168 )

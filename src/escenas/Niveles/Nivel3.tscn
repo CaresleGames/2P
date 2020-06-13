@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/escenas/Actores/Enemigo.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/escenas/objetos/GameOver.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/escenas/Niveles/Nivel4.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/escenas/objetos/Fin.tscn" type="PackedScene" id=9]
 
 [node name="Nivel3" type="Node2D"]
 
@@ -36,3 +37,16 @@ siguiente_nivel = ExtResource( 8 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource( 7 )]
+
+[node name="Limites" type="Node2D" parent="."]
+
+[node name="Fin" parent="Limites" instance=ExtResource( 9 )]
+position = Vector2( 120, 168 )
+
+[node name="Fin2" parent="Limites" instance=ExtResource( 9 )]
+position = Vector2( 248, 88 )
+rotation = -1.57079
+
+[node name="Fin3" parent="Limites" instance=ExtResource( 9 )]
+position = Vector2( -8, 96 )
+rotation = -1.57079

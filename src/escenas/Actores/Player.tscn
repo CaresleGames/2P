@@ -15,7 +15,7 @@ velocidad = 100
 aceleracion = 25.0
 friccion = 0.12
 vidas_maximas = 3
-aceleracion_salto = 45.0
+aceleracion_salto = 70.0
 
 [node name="SprPlayer" type="Sprite" parent="."]
 position = Vector2( 0, -4 )
