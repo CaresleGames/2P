@@ -37,3 +37,11 @@ margin_bottom = 160.0
 
 [node name="Fin" parent="." instance=ExtResource( 2 )]
 position = Vector2( 120, 168 )
+
+[node name="Fin2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -8, 96 )
+rotation = 1.57079
+
+[node name="Fin3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 248, 96 )
+rotation = 1.57079

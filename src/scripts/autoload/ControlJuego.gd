@@ -15,12 +15,13 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if inicio_juego:
-		jugador = get_tree().get_nodes_in_group("player")[0]
+		if get_tree().get_nodes_in_group("player").size() > 0:
+			jugador = get_tree().get_nodes_in_group("player")[0]
 		if get_tree().get_nodes_in_group("enemigo").size() > 0:
 			enemigo = get_tree().get_nodes_in_group("enemigo")[0]
 		if get_tree().get_nodes_in_group("game_over").size() > 0:
 			gui_gameover = get_tree().get_nodes_in_group("game_over")[0]
-		if jugador.vidas <= 0:
+		if jugador.vidas <= 0 and get_tree().get_nodes_in_group("player").size() > 0:
 			gui_gameover.show()
 			jugador.hide()
 			if get_tree().get_nodes_in_group("enemigo").size() > 0:

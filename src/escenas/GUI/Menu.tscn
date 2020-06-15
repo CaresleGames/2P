@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/scripts/GUI/Menu.gd" type="Script" id=1]
 [ext_resource path="res://src/escenas/Niveles/Nivel1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/boton_quit.png" type="Texture" id=4]
+[ext_resource path="res://assets/boton_play.png" type="Texture" id=5]
+[ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=6]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -30,18 +33,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Iniciar" type="Button" parent="."]
-margin_left = 64.0
-margin_top = 96.0
+[node name="Iniciar" type="TextureButton" parent="."]
+margin_left = 16.0
+margin_top = 88.0
 margin_right = 112.0
-margin_bottom = 116.0
-text = "Iniciar"
+margin_bottom = 120.0
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Salir" type="Button" parent="."]
+[node name="Salir" type="TextureButton" parent="."]
 margin_left = 128.0
-margin_top = 96.0
-margin_right = 176.0
-margin_bottom = 116.0
-text = "Salir"
+margin_top = 88.0
+margin_right = 224.0
+margin_bottom = 120.0
+texture_normal = ExtResource( 4 )
+
+[node name="Transicion" parent="." instance=ExtResource( 6 )]
 [connection signal="pressed" from="Iniciar" to="." method="_on_Iniciar_pressed"]
 [connection signal="pressed" from="Salir" to="." method="_on_Salir_pressed"]
