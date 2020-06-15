@@ -10,7 +10,9 @@ onready var vidas := vidas_maximas
 
 
 func _physics_process(_delta: float) -> void:
+	$Izquierda.cast_to = Vector2(0, 0)
 	mover()
+	
 
 
 func mover() -> void:
@@ -23,7 +25,9 @@ func mover() -> void:
 	else:
 		movimiento.x = lerp(movimiento.x, 0, friccion)
 	mover_y()
-	
+	$Izquierda.force_raycast_update()
+	$Centro.force_raycast_update()
+	$Derecha.force_raycast_update()
 	movimiento = move_and_slide(movimiento, SUELO)  
 
 
