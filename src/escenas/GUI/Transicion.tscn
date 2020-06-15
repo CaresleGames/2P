@@ -56,7 +56,9 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 240, 0 ) ]
 }
 
-[node name="Transicion" type="Control"]
+[node name="Transicion" type="Control" groups=[
+"trans",
+]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {

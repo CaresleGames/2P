@@ -14,6 +14,7 @@ func _on_Iniciar_pressed() -> void:
 	yield(anim, "animation_finished")
 	anim.play("Salida")
 	yield(anim, "animation_finished")
+	yield(get_tree().create_timer(.001), "timeout")
 	get_tree().change_scene_to(siguiente_escena)
 	ControlJuego.inicio_juego = true
 
