@@ -31,8 +31,6 @@ siguiente_nivel = ExtResource( 5 )
 
 [node name="Nivel" parent="." instance=ExtResource( 6 )]
 
-[node name="GameOver" parent="." instance=ExtResource( 7 )]
-
 [node name="Limites" type="Node2D" parent="."]
 
 [node name="Fin" parent="Limites" instance=ExtResource( 8 )]
@@ -49,3 +47,5 @@ rotation = 1.57079
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Transicion" parent="CanvasLayer" instance=ExtResource( 9 )]
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 7 )]

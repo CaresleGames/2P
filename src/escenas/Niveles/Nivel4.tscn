@@ -39,9 +39,9 @@ position = Vector2( 168, 120 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 1 )]
-
 [node name="Transicion" parent="CanvasLayer" instance=ExtResource( 9 )]
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 1 )]
 
 [node name="Nivel" parent="." instance=ExtResource( 7 )]
 

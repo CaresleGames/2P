@@ -37,9 +37,9 @@ siguiente_nivel = ExtResource( 8 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 7 )]
-
 [node name="Transicion" parent="CanvasLayer" instance=ExtResource( 10 )]
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 7 )]
 
 [node name="Limites" type="Node2D" parent="."]
 

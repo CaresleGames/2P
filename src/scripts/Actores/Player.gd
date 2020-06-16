@@ -10,7 +10,7 @@ onready var vidas := vidas_maximas
 
 
 func _physics_process(_delta: float) -> void:
-	$Izquierda.cast_to = Vector2(0, 0)
+	
 	mover()
 	
 
