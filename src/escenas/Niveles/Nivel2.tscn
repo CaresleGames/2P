@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=2]
@@ -10,6 +10,12 @@
 [ext_resource path="res://src/escenas/objetos/Fin.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=9]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 144, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 240, 8 )
+
 [node name="Nivel2" type="Node2D"]
 
 [node name="Fondo" parent="." instance=ExtResource( 2 )]
@@ -20,32 +26,61 @@ cell_size = Vector2( 16, 16 )
 collision_layer = 8
 collision_mask = 5
 format = 1
-tile_data = PoolIntArray( 458754, 0, 0, 458755, 1, 0, 458756, 2, 0, 458762, 0, 0, 458763, 1, 0, 458764, 2, 0 )
+tile_data = PoolIntArray( 786439, 0, 0, 786440, 1, 0, 786441, 2, 0, 786447, 0, 0, 786448, 1, 0, 786449, 1, 0, 786450, 2, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 40, 112 )
+position = Vector2( 136, 176 )
 
 [node name="Meta" parent="." instance=ExtResource( 4 )]
-position = Vector2( 192, 104 )
+position = Vector2( 272, 176 )
 siguiente_nivel = ExtResource( 5 )
 
 [node name="Nivel" parent="." instance=ExtResource( 6 )]
 
 [node name="Limites" type="Node2D" parent="."]
-
-[node name="Fin" parent="Limites" instance=ExtResource( 8 )]
-position = Vector2( 120, 168 )
-
-[node name="Fin2" parent="Limites" instance=ExtResource( 8 )]
-position = Vector2( -8, 80 )
-rotation = 1.57079
+position = Vector2( 104, 0 )
 
 [node name="Fin3" parent="Limites" instance=ExtResource( 8 )]
-position = Vector2( 248, 80 )
+position = Vector2( 384, 128 )
 rotation = 1.57079
+
+[node name="Sprite" parent="Limites/Fin3" index="0"]
+position = Vector2( 1.82326, 2.38419e-07 )
+scale = Vector2( 35.6808, 2 )
+
+[node name="CollisionShape2D" parent="Limites/Fin3" index="1"]
+shape = SubResource( 1 )
+
+[node name="Fin4" parent="Limites" instance=ExtResource( 8 )]
+position = Vector2( 136, 280 )
+rotation = 3.14159
+
+[node name="Sprite" parent="Limites/Fin4" index="0"]
+position = Vector2( 0.275784, 2.38419e-07 )
+scale = Vector2( 59.9435, 2 )
+
+[node name="CollisionShape2D" parent="Limites/Fin4" index="1"]
+shape = SubResource( 2 )
+
+[node name="Fin5" parent="Limites" instance=ExtResource( 8 )]
+position = Vector2( -112, 144 )
+rotation = 4.71238
+
+[node name="Sprite" parent="Limites/Fin5" index="0"]
+position = Vector2( 0.275784, 2.38419e-07 )
+scale = Vector2( 59.9435, 2 )
+
+[node name="CollisionShape2D" parent="Limites/Fin5" index="1"]
+shape = SubResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Transicion" parent="CanvasLayer" instance=ExtResource( 9 )]
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource( 7 )]
+
+[editable path="Limites/Fin3"]
+
+[editable path="Limites/Fin4"]
+
+[editable path="Limites/Fin5"]

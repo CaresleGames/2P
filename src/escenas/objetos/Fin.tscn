@@ -4,10 +4,11 @@
 [ext_resource path="res://src/scripts/Objetos/Fin.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 120, 8 )
+extents = Vector2( 240, 8 )
 
 [node name="Fin" type="Area2D"]
 modulate = Color( 0.647059, 0.12549, 0.835294, 1 )
+position = Vector2( -1, 0 )
 monitorable = false
 collision_layer = 16
 collision_mask = 5
@@ -17,8 +18,8 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, 2.38419e-07 )
-scale = Vector2( 30, 2 )
+position = Vector2( -0.500015, 2.38419e-07 )
+scale = Vector2( 60.125, 2 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

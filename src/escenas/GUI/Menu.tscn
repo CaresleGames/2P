@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/scripts/GUI/Menu.gd" type="Script" id=1]
 [ext_resource path="res://src/escenas/Niveles/Nivel1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/boton_quit.png" type="Texture" id=4]
 [ext_resource path="res://assets/boton_play.png" type="Texture" id=5]
 [ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=6]
@@ -15,8 +14,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 siguiente_escena = ExtResource( 2 )
-
-[node name="Fondo" parent="." instance=ExtResource( 3 )]
 
 [node name="Titulo" type="Label" parent="."]
 anchor_left = 0.5
@@ -34,20 +31,24 @@ __meta__ = {
 }
 
 [node name="Iniciar" type="TextureButton" parent="."]
-margin_left = 16.0
-margin_top = 88.0
-margin_right = 112.0
-margin_bottom = 120.0
+anchor_left = 0.2
+anchor_top = 0.593
+anchor_right = 0.4
+anchor_bottom = 0.711
+margin_left = 40.0
+margin_top = 7.88998
+margin_right = 40.0
+margin_bottom = 8.03
 texture_normal = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Salir" type="TextureButton" parent="."]
-margin_left = 128.0
-margin_top = 88.0
-margin_right = 224.0
-margin_bottom = 120.0
+margin_left = 248.0
+margin_top = 168.0
+margin_right = 344.0
+margin_bottom = 200.0
 texture_normal = ExtResource( 4 )
 
 [node name="Transicion" parent="." instance=ExtResource( 6 )]
