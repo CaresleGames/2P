@@ -10,6 +10,7 @@ func _on_Meta_body_entered(_body: KinematicBody2D) -> void:
 	if not anim == null:
 		anim.play("Entrada")
 		yield(anim, "animation_finished")
+		get_parent().emit_signal("ocultar")
 		anim.play("Salida")
 		yield(anim, "animation_finished")
 		yield(get_tree().create_timer(.001), "timeout")

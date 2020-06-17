@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=2]
@@ -10,8 +10,10 @@
 [ext_resource path="res://src/escenas/Niveles/Nivel4.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/escenas/objetos/Fin.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=11]
 
 [node name="Nivel3" type="Node2D"]
+script = ExtResource( 11 )
 
 [node name="Fondo" parent="." instance=ExtResource( 2 )]
 
@@ -35,7 +37,9 @@ position = Vector2( 312, 176 )
 position = Vector2( 344, 168 )
 siguiente_nivel = ExtResource( 8 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=[
+"canvas_padre",
+]]
 
 [node name="Transicion" parent="CanvasLayer" instance=ExtResource( 10 )]
 

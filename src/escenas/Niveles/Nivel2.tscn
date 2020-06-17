@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/escenas/objetos/GameOver.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/escenas/objetos/Fin.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 144, 8 )
@@ -17,6 +18,7 @@ extents = Vector2( 144, 8 )
 extents = Vector2( 240, 8 )
 
 [node name="Nivel2" type="Node2D"]
+script = ExtResource( 10 )
 
 [node name="Fondo" parent="." instance=ExtResource( 2 )]
 
@@ -73,7 +75,9 @@ scale = Vector2( 59.9435, 2 )
 [node name="CollisionShape2D" parent="Limites/Fin5" index="1"]
 shape = SubResource( 2 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=[
+"canvas_padre",
+]]
 
 [node name="Transicion" parent="CanvasLayer" instance=ExtResource( 9 )]
 
