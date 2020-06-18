@@ -45,18 +45,22 @@ func mover_y() -> void:
 	if not $CoyoteJump.is_stopped():
 		if Input.is_action_just_pressed("ui_salto"):
 			movimiento.y = -salto
+			
 			$CoyoteJump.stop()
 	if $Izquierda.is_colliding() and $Centro.is_colliding() and $Derecha.is_colliding():
 		if Input.is_action_just_pressed("ui_salto"):
 			movimiento.y = -salto
+			
 	if Input.is_action_just_pressed("ui_salto"):
 		if puedo_saltar and is_on_floor():
 			movimiento.y = -salto
 			$TiempoSalto.start()
+			
 	if Input.is_action_pressed("ui_salto"):
 		
 		if not $TiempoSalto.is_stopped():
 			movimiento.y = -aceleracion_salto
+			
 
 
 func _reacomodar() -> void:
