@@ -2,11 +2,33 @@ extends Control
 
 export var siguiente_escena : PackedScene
 
+var boton_selecionado : int = 0 # 0 Iniciar 1 Salir
+
 onready var anim : AnimationPlayer = $Transicion/AnimationPlayer
 
 func _ready() -> void:
 	$Transicion.hide()
 
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_right"):
+		if boton_selecionado == 0:
+			boton_selecionado = 1
+		else:
+			boton_selecionado = 0
+	if Input.is_action_just_pressed("ui_left"):
+		if boton_selecionado == 1:
+			boton_selecionado = 0
+		else:
+			boton_selecionado = 1
+	
+	if Input.is_action_just_pressed("ui_salto") and boton_selecionado == 0:
+		$Iniciar.emit_signal("pressed")
+	if Input.is_action_just_pressed("ui_salto") and boton_selecionado == 1:
+		$Salir.emit_signal("pressed")
+	print(boton_selecionado)
+	
+ 
 
 func _on_Iniciar_pressed() -> void:
 	$Transicion.show()
