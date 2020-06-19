@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/scripts/GUI/Menu.gd" type="Script" id=1]
 [ext_resource path="res://src/escenas/Niveles/Nivel1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/font/fuente_theme.tres" type="Theme" id=3]
 [ext_resource path="res://assets/boton_quit.png" type="Texture" id=4]
 [ext_resource path="res://assets/boton_play.png" type="Texture" id=5]
 [ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=6]
@@ -9,6 +10,8 @@
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = 2.0
+theme = ExtResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -20,10 +23,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -120.0
-margin_top = -24.0
-margin_right = 120.0
-margin_bottom = -10.0
+margin_left = -147.0
+margin_top = -8.0
+margin_right = 147.0
+margin_bottom = 8.0
 text = "Proyecto Plataforma"
 align = 1
 __meta__ = {
@@ -45,10 +48,14 @@ __meta__ = {
 }
 
 [node name="Salir" type="TextureButton" parent="."]
-margin_left = 248.0
-margin_top = 168.0
-margin_right = 344.0
-margin_bottom = 200.0
+anchor_left = 0.517
+anchor_top = 0.618
+anchor_right = 0.717
+anchor_bottom = 0.741
+margin_left = -0.160004
+margin_top = -0.0960083
+margin_right = -0.160004
+margin_bottom = -1.55202
 texture_normal = ExtResource( 4 )
 
 [node name="Transicion" parent="." instance=ExtResource( 6 )]
