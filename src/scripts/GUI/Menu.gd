@@ -26,7 +26,6 @@ func _process(delta: float) -> void:
 		$Iniciar.emit_signal("pressed")
 	if Input.is_action_just_pressed("ui_salto") and boton_selecionado == 1:
 		$Salir.emit_signal("pressed")
-	print(boton_selecionado)
 	
  
 
