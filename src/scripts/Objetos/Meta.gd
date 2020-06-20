@@ -14,6 +14,7 @@ func _on_Meta_body_entered(_body: KinematicBody2D) -> void:
 		anim.play("Salida")
 		yield(anim, "animation_finished")
 		yield(get_tree().create_timer(.001), "timeout")
+	ControlJuego.emit_signal("cambio_nivel")
 	
 	var cambio := get_tree().change_scene_to(siguiente_nivel)
 	print(cambio)

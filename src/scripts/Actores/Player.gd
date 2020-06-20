@@ -1,12 +1,12 @@
 extends Actor
 
-export var vidas_maximas : int = 0
+
 export var aceleracion_salto : float = 0
 
 var distancia : float = 0
 var puedo_saltar : bool = true
-
-onready var vidas := vidas_maximas
+var vidas_maximas : int = 3
+var vidas := vidas_maximas
 
 
 func _physics_process(_delta: float) -> void:
