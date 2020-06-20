@@ -1,11 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/scripts/GUI/Menu.gd" type="Script" id=1]
 [ext_resource path="res://src/escenas/Niveles/Nivel1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/font/fuente_theme.tres" type="Theme" id=3]
-[ext_resource path="res://assets/boton_quit.png" type="Texture" id=4]
-[ext_resource path="res://assets/boton_play.png" type="Texture" id=5]
+[ext_resource path="res://assets/font/fuente.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/boton_desactivado.png" type="Texture" id=5]
 [ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/font/Mystery Font.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=2]
+extra_spacing_top = 10
+font_data = ExtResource( 7 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -34,29 +39,42 @@ __meta__ = {
 }
 
 [node name="Iniciar" type="TextureButton" parent="."]
-anchor_left = 0.283
+anchor_left = 0.233
 anchor_top = 0.622
-anchor_right = 0.483
-anchor_bottom = 0.741
-margin_left = 0.159988
-margin_top = 0.059967
-margin_right = 0.159988
-margin_bottom = -0.0700226
+anchor_right = 0.467
+anchor_bottom = 0.735
+margin_left = 0.159996
+margin_top = -0.18399
+margin_right = -0.160004
+margin_bottom = 2.08
 texture_normal = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="Iniciar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 16.0
+custom_fonts/font = SubResource( 2 )
+text = "Iniciar"
+
 [node name="Salir" type="TextureButton" parent="."]
-anchor_left = 0.517
+anchor_left = 0.533
 anchor_top = 0.618
-anchor_right = 0.717
-anchor_bottom = 0.741
-margin_left = -0.160004
-margin_top = -0.0960083
+anchor_right = 0.767
+anchor_bottom = 0.743
+margin_left = 0.159973
+margin_top = -0.0959778
 margin_right = -0.160004
-margin_bottom = -1.55202
-texture_normal = ExtResource( 4 )
+margin_bottom = -2.09599
+texture_normal = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Salir"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 4 )
+text = "Salir"
 
 [node name="Transicion" parent="." instance=ExtResource( 6 )]
 [connection signal="pressed" from="Iniciar" to="." method="_on_Iniciar_pressed"]

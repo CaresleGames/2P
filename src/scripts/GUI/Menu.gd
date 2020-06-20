@@ -5,6 +5,8 @@ export var siguiente_escena : PackedScene
 var boton_selecionado : int = 0 # 0 Iniciar 1 Salir
 
 onready var anim : AnimationPlayer = $Transicion/AnimationPlayer
+onready var texture_normal : Texture = preload("res://assets/boton_desactivado.png")
+onready var texture_normal_focus : Texture = preload("res://assets/boton_activo.png")
 
 func _ready() -> void:
 	$Transicion.hide()
@@ -21,6 +23,13 @@ func _process(delta: float) -> void:
 			boton_selecionado = 0
 		else:
 			boton_selecionado = 1
+	
+	if boton_selecionado == 0:
+		$Iniciar.texture_normal = texture_normal_focus
+		$Salir.texture_normal = texture_normal
+	else:
+		$Iniciar.texture_normal = texture_normal
+		$Salir.texture_normal = texture_normal_focus
 	
 	if Input.is_action_just_pressed("ui_salto") and boton_selecionado == 0:
 		$Iniciar.emit_signal("pressed")
