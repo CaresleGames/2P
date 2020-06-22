@@ -50,11 +50,13 @@ func mover_y() -> void:
 	if $Izquierda.is_colliding() and $Centro.is_colliding() and $Derecha.is_colliding():
 		if Input.is_action_just_pressed("ui_salto"):
 			movimiento.y = -salto
+			$AudioPlayer.play()
 			
 	if Input.is_action_just_pressed("ui_salto"):
 		if puedo_saltar and is_on_floor():
 			movimiento.y = -salto
 			$TiempoSalto.start()
+			$AudioPlayer.play()
 			
 	if Input.is_action_pressed("ui_salto"):
 		
