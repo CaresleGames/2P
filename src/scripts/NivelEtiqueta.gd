@@ -8,9 +8,6 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if ControlJuego.jugador.vidas == null:
-		print("null")
-	else:
-		vidas = ControlJuego.jugador.vidas
+	vidas = ControlJuego.jugador.vidas
 	$Vidas.text = str(vidas)
 	print("vidas: " + str(vidas))
