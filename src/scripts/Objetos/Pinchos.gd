@@ -7,6 +7,7 @@ func _on_Pinchos_body_entered(body: KinematicBody2D) -> void:
 		body.hide()
 		body.muerte_pinchos()
 		return
+	body.muerto = true
 	body._reacomodar()
 	var enemigo = get_tree().get_nodes_in_group("enemigo")
 	

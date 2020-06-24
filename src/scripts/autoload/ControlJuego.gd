@@ -48,6 +48,7 @@ func _reaparecer_inicio() -> void:
 func _reinicio() -> void:
 	gui_gameover.hide()
 	jugador.vidas = jugador.vidas_maximas
+	jugador.muerto = false
 	jugador._reacomodar()
 	jugador.vidas = jugador.vidas_maximas
 	if get_tree().get_nodes_in_group("enemigo").size() > 0:

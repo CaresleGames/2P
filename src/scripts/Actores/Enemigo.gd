@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_JugadorMuerte_body_entered(body: Node) -> void:
-	body.hide()
+	body.muerto = true
 	ControlJuego.emit_signal("reaparecer_inicio")
 
 

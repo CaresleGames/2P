@@ -7,6 +7,7 @@ var distancia : float = 0
 var puedo_saltar : bool = true
 var vidas_maximas : int = 3
 var vidas := vidas_maximas
+var muerto := false
 
 
 func _physics_process(_delta: float) -> void:
@@ -18,12 +19,13 @@ func _physics_process(_delta: float) -> void:
 func mover() -> void:
 	direccion = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 	
-	if direccion > 0:
-		movimiento.x = min(movimiento.x + aceleracion, velocidad)
-	if direccion < 0:
-		movimiento.x = max(movimiento.x - aceleracion, -velocidad)
-	else:
-		movimiento.x = lerp(movimiento.x, 0, friccion)
+	if not muerto:
+		if direccion > 0:
+			movimiento.x = min(movimiento.x + aceleracion, velocidad)
+		if direccion < 0:
+			movimiento.x = max(movimiento.x - aceleracion, -velocidad)
+		else:
+			movimiento.x = lerp(movimiento.x, 0, friccion)
 	mover_y()
 	$Izquierda.force_raycast_update()
 	$Centro.force_raycast_update()
@@ -45,7 +47,6 @@ func mover_y() -> void:
 	if not $CoyoteJump.is_stopped():
 		if Input.is_action_just_pressed("ui_salto"):
 			movimiento.y = -salto
-			
 			$CoyoteJump.stop()
 	if $Izquierda.is_colliding() and $Centro.is_colliding() and $Derecha.is_colliding():
 		if Input.is_action_just_pressed("ui_salto"):
@@ -65,7 +66,12 @@ func mover_y() -> void:
 
 
 func _reacomodar() -> void:
-	$SprPlayer.hide()
+	if muerto:
+		$SprPlayer.hide()
+		$ParticulasMuerte.emitting = true
+		yield(get_tree().create_timer(1), "timeout")
+		$SprPlayer.show()
+		muerto = false
 	position = coordenas_inicio
 	vidas -= 1
 	if vidas >= 1:
