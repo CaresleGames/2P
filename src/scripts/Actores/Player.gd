@@ -51,13 +51,11 @@ func mover_y() -> void:
 		if Input.is_action_just_pressed("ui_salto"):
 			movimiento.y = -salto
 			$SonidoSalto.play()
-			$ParticulasSalto.emitting = true
 	if Input.is_action_just_pressed("ui_salto"):
 		if puedo_saltar and is_on_floor():
 			movimiento.y = -salto
 			$TiempoSalto.start()
 			$SonidoSalto.play()
-			$ParticulasSalto.emitting = true
 			
 	if Input.is_action_pressed("ui_salto"):
 		
@@ -67,6 +65,7 @@ func mover_y() -> void:
 
 
 func _reacomodar() -> void:
+	$SprPlayer.hide()
 	position = coordenas_inicio
 	vidas -= 1
 	if vidas >= 1:

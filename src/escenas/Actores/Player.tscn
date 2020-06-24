@@ -53,12 +53,16 @@ collision_mask = 8
 [node name="SonidoSalto" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 
-[node name="ParticulasSalto" type="CPUParticles2D" parent="."]
+[node name="ParticulasMuerte" type="CPUParticles2D" parent="."]
+position = Vector2( 0, -4 )
 emitting = false
-amount = 16
+amount = 100
 lifetime = 0.5
 one_shot = true
+explosiveness = 0.5
 emission_shape = 1
-emission_sphere_radius = 5.0
-initial_velocity = 10.0
-scale_amount = 4.0
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+scale_amount = 2.0
