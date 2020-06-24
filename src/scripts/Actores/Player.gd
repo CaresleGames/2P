@@ -52,12 +52,13 @@ func mover_y() -> void:
 		if Input.is_action_just_pressed("ui_salto"):
 			movimiento.y = -salto
 			$SonidoSalto.play()
+			$Anim.play("Salto")
 	if Input.is_action_just_pressed("ui_salto"):
 		if puedo_saltar and is_on_floor():
 			movimiento.y = -salto
 			$TiempoSalto.start()
 			$SonidoSalto.play()
-			
+			$Anim.play("Salto")
 	if Input.is_action_pressed("ui_salto"):
 		
 		if not $TiempoSalto.is_stopped():
