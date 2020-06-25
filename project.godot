@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Plataformero"
-run/main_scene="res://src/escenas/GUI/Menu.tscn"
+run/main_scene="res://src/escenas/Intro.tscn"
 config/icon="res://icono.png"
 
 [autoload]
