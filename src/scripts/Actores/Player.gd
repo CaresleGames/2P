@@ -40,10 +40,12 @@ func mover_y() -> void:
 	if is_on_floor():
 		movimiento.y = 0
 		puedo_saltar = true
+	
 	if not is_on_floor() and $Izquierda.is_colliding() and not $Centro.is_colliding() and not $Derecha.is_colliding():
 		$CoyoteJump.start()
 	if not is_on_floor() and not $Izquierda.is_colliding() and not $Centro.is_colliding() and $Derecha.is_colliding():
 		$CoyoteJump.start()
+		
 	if not $CoyoteJump.is_stopped():
 		if Input.is_action_just_pressed("ui_salto"):
 			movimiento.y = -salto
@@ -68,6 +70,7 @@ func mover_y() -> void:
 
 func _reacomodar() -> void:
 	if muerto:
+		movimiento = Vector2.ZERO
 		$SprPlayer.hide()
 		$ParticulasMuerte.emitting = true
 		yield(get_tree().create_timer(1), "timeout")
