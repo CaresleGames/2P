@@ -36,6 +36,12 @@ position = Vector2( 256, 224 )
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 168, 200 )
 
+[node name="Camera2D" parent="Player" index="10"]
+limit_left = 0
+limit_top = 0
+limit_right = 480
+limit_bottom = 270
+
 [node name="Meta" parent="." instance=ExtResource( 4 )]
 position = Vector2( 312, 200 )
 
@@ -61,3 +67,5 @@ rotation = 1.57079
 [node name="Fin3" parent="Limites" instance=ExtResource( 8 )]
 position = Vector2( -8, 96 )
 rotation = 1.57079
+
+[editable path="Player"]

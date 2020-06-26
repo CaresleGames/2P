@@ -28,6 +28,12 @@ tile_data = PoolIntArray( 655371, 5, 0, 655375, 5, 0, 655382, 5, 0, 720907, 7, 0
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 200, 160 )
 
+[node name="Camera2D" parent="Player" index="10"]
+limit_left = 0
+limit_top = 0
+limit_right = 480
+limit_bottom = 270
+
 [node name="Nivel" parent="." instance=ExtResource( 4 )]
 
 [node name="Enemigo" parent="." instance=ExtResource( 6 )]
@@ -57,3 +63,5 @@ rotation = -1.57079
 [node name="Fin3" parent="Limites" instance=ExtResource( 9 )]
 position = Vector2( -8, 96 )
 rotation = -1.57079
+
+[editable path="Player"]
