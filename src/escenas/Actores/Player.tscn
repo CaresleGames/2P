@@ -74,7 +74,6 @@ position = Vector2( 0, -4 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -4 )
 shape = SubResource( 1 )
 
@@ -109,22 +108,23 @@ stream = ExtResource( 3 )
 [node name="ParticulasMuerte" type="CPUParticles2D" parent="."]
 position = Vector2( 0, -4 )
 emitting = false
-amount = 100
-lifetime = 0.5
+amount = 150
+lifetime = 0.3
 one_shot = true
-explosiveness = 0.5
+explosiveness = 0.6
 emission_shape = 1
 emission_sphere_radius = 1.0
 spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 50.0
-scale_amount = 2.0
+scale_amount = 2.5
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 anims/Salto = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+smoothing_enabled = true
 drag_margin_left = 0.0
 drag_margin_right = 0.0
 editor_draw_drag_margin = true
