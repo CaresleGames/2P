@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=2]
 [ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/escenas/objetos/GameOver.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/escenas/objetos/Pinchos.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/escenas/Niveles/NivelEtiqueta.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/font/fuente.tres" type="DynamicFont" id=8]
 
 [node name="Nivel5" type="Node2D"]
 script = ExtResource( 2 )
@@ -14,14 +15,12 @@ script = ExtResource( 2 )
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
+collision_layer = 8
 format = 1
-tile_data = PoolIntArray( 196608, 13, 0, 196609, 13, 0, 196610, 13, 0, 196611, 13, 0, 196612, 13, 0, 196613, 13, 0, 196614, 13, 0, 196615, 4, 0, 196635, 3, 0, 196636, 13, 0, 196637, 13, 0, 196638, 13, 0, 196639, 13, 0, 196640, 13, 0, 196641, 13, 0, 196642, 13, 0, 196643, 13, 0, 262151, 11, 0, 262171, 10, 0, 327687, 11, 0, 327707, 10, 0, 393223, 11, 0, 393243, 10, 0, 458759, 11, 0, 458779, 10, 0, 524295, 11, 0, 524315, 10, 0, 589831, 11, 0, 589851, 10, 0, 655367, 11, 0, 655387, 10, 0, 720903, 11, 0, 720923, 10, 0, 786439, 11, 0, 786459, 10, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 1, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0, 851985, 2, 0, 851995, 10, 0, 917511, 11, 0, 917531, 10, 0, 983047, 11, 0, 983067, 10, 0, 1048583, 11, 0, 1048603, 10, 0, 1114119, 11, 0, 1114139, 10, 0, 1179655, 11, 0, 1179675, 10, 0, 1245191, 11, 0, 1245211, 10, 0, 1310727, 11, 0, 1310747, 10, 0, 1376264, 4, 0, 1376271, 3, 0, 1376272, 13, 0, 1376273, 13, 0, 1376274, 13, 0, 1376275, 13, 0, 1376276, 13, 0, 1376277, 13, 0, 1376278, 13, 0, 1376279, 13, 0, 1376280, 13, 0, 1376281, 13, 0, 1376282, 13, 0, 1441800, 11, 0, 1441804, 3, 0, 1441805, 13, 0, 1441806, 13, 0, 1507336, 11, 0, 1507340, 10, 0, 1572872, 11, 0, 1572876, 10, 0, 1638408, 11, 0, 1638412, 10, 0, 1703945, 13, 0, 1703946, 13, 0, 1703947, 13, 0 )
+tile_data = PoolIntArray( 262144, 13, 0, 262145, 13, 0, 262146, 13, 0, 262147, 4, 0, 262168, 3, 0, 262169, 13, 0, 262170, 13, 0, 262171, 13, 0, 262172, 13, 0, 262173, 13, 0, 327683, 11, 0, 327704, 10, 0, 393219, 11, 0, 393240, 10, 0, 458755, 11, 0, 458776, 10, 0, 524291, 11, 0, 524312, 10, 0, 589827, 11, 0, 589848, 10, 0, 655363, 11, 0, 655384, 10, 0, 720899, 11, 0, 720920, 10, 0, 786435, 11, 0, 786456, 10, 0, 851971, 11, 0, 851992, 10, 0, 917508, 13, 0, 917509, 13, 0, 917510, 13, 0, 917511, 13, 0, 917512, 13, 0, 917513, 13, 0, 917514, 13, 0, 917515, 13, 0, 917516, 13, 0, 917517, 13, 0, 917518, 13, 0, 917519, 13, 0, 917520, 13, 0, 917521, 13, 0, 917522, 13, 0, 917523, 13, 0, 917524, 13, 0, 917525, 13, 0, 917526, 13, 0, 917527, 13, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 240, 136 )
-
-[node name="Meta" parent="." instance=ExtResource( 6 )]
-position = Vector2( 384, 192 )
 
 [node name="Nivel5" type="CanvasLayer" parent="."]
 
@@ -32,3 +31,24 @@ position = Vector2( 384, 192 )
 [node name="Nivel" parent="Nivel5" instance=ExtResource( 7 )]
 
 [node name="Limites" type="Node2D" parent="."]
+
+[node name="Pinchos" type="Node2D" parent="."]
+
+[node name="Pinchos" parent="Pinchos" instance=ExtResource( 6 )]
+position = Vector2( 112, 224 )
+
+[node name="Pinchos2" parent="Pinchos" instance=ExtResource( 6 )]
+position = Vector2( 280, 224 )
+
+[node name="Mensaje" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 120.0
+margin_right = 374.0
+margin_bottom = 146.0
+custom_fonts/font = ExtResource( 8 )
+text = "Fin Gracias por jugar"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

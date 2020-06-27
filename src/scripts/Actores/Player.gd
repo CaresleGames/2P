@@ -71,10 +71,12 @@ func mover_y() -> void:
 func _reacomodar() -> void:
 	if muerto:
 		movimiento = Vector2.ZERO
+		$CollisionShape2D.hide()
 		$SprPlayer.hide()
 		$ParticulasMuerte.emitting = true
 		yield(get_tree().create_timer(1), "timeout")
 		$SprPlayer.show()
+		$CollisionShape2D.show()
 		muerto = false
 	position = coordenas_inicio
 	vidas -= 1
