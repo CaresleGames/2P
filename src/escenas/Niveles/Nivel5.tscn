@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/escenas/objetos/Pinchos.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/escenas/Niveles/NivelEtiqueta.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/font/fuente.tres" type="DynamicFont" id=8]
 
 [node name="Nivel5" type="Node2D"]
 script = ExtResource( 2 )
@@ -17,7 +16,7 @@ tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 8
 format = 1
-tile_data = PoolIntArray( 262144, 13, 0, 262145, 13, 0, 262146, 13, 0, 262147, 4, 0, 262168, 3, 0, 262169, 13, 0, 262170, 13, 0, 262171, 13, 0, 262172, 13, 0, 262173, 13, 0, 327683, 11, 0, 327704, 10, 0, 393219, 11, 0, 393240, 10, 0, 458755, 11, 0, 458776, 10, 0, 524291, 11, 0, 524312, 10, 0, 589827, 11, 0, 589848, 10, 0, 655363, 11, 0, 655384, 10, 0, 720899, 11, 0, 720920, 10, 0, 786435, 11, 0, 786456, 10, 0, 851971, 11, 0, 851992, 10, 0, 917508, 13, 0, 917509, 13, 0, 917510, 13, 0, 917511, 13, 0, 917512, 13, 0, 917513, 13, 0, 917514, 13, 0, 917515, 13, 0, 917516, 13, 0, 917517, 13, 0, 917518, 13, 0, 917519, 13, 0, 917520, 13, 0, 917521, 13, 0, 917522, 13, 0, 917523, 13, 0, 917524, 13, 0, 917525, 13, 0, 917526, 13, 0, 917527, 13, 0 )
+tile_data = PoolIntArray( 262144, 13, 0, 262145, 13, 0, 262146, 13, 0, 262147, 4, 0, 327683, 11, 0, 393219, 11, 0, 458755, 11, 0, 524291, 11, 0, 589827, 11, 0, 655363, 11, 0, 720900, 15, 0, 786437, 15, 0, 786448, 16, 0, 786449, 13, 0, 786450, 13, 0, 786451, 15, 0, 851974, 15, 0, 851983, 16, 0, 851988, 15, 0, 851990, 16, 0, 851991, 13, 0, 851992, 13, 0, 851993, 13, 0, 851994, 15, 0, 917511, 13, 0, 917512, 13, 0, 917513, 13, 0, 917514, 13, 0, 917515, 13, 0, 917516, 13, 0, 917517, 13, 0, 917518, 13, 0, 917525, 13, 0, 917531, 13, 0, 917532, 13, 0, 917533, 15, 0, 983070, 13, 0, 983071, 13, 0, 983072, 13, 0, 983073, 13, 0, 983074, 13, 0, 983075, 13, 0, 983076, 13, 0, 983077, 13, 0, 983078, 13, 0, 983079, 13, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 240, 136 )
@@ -35,20 +34,4 @@ position = Vector2( 240, 136 )
 [node name="Pinchos" type="Node2D" parent="."]
 
 [node name="Pinchos" parent="Pinchos" instance=ExtResource( 6 )]
-position = Vector2( 112, 224 )
-
-[node name="Pinchos2" parent="Pinchos" instance=ExtResource( 6 )]
-position = Vector2( 280, 224 )
-
-[node name="Mensaje" type="Label" parent="."]
-margin_left = 64.0
-margin_top = 120.0
-margin_right = 374.0
-margin_bottom = 146.0
-custom_fonts/font = ExtResource( 8 )
-text = "Fin Gracias por jugar"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+position = Vector2( 192, 224 )
