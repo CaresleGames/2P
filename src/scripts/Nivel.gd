@@ -19,6 +19,8 @@ func ocultar_elementos() -> void:
 	for hijo in hijos:
 		if not hijo.is_in_group("trans"):
 			if not hijo.is_in_group("canvas_padre"):
+				if hijo is WorldEnvironment:
+					return
 				hijo.hide()
 
 

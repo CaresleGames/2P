@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/escenas/objetos/Fin.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=7]
 [ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=10]
 
 [node name="Nivel1" type="Node2D"]
 script = ExtResource( 7 )
@@ -16,6 +17,8 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 270.0, 0.0 ],
 "_edit_vertical_guides_": [ 480.0, 0.0 ]
 }
+
+[node name="Efectos" parent="." instance=ExtResource( 10 )]
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
 position = Vector2( 168, 184 )
