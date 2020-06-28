@@ -20,6 +20,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_efectos"):
+		var efecto_mundo : WorldEnvironment = get_tree().get_nodes_in_group("efectos")[0]
+		efecto_mundo.environment.glow_enabled = not efecto_mundo.environment.glow_enabled
 	if inicio_juego:
 		if get_tree().get_nodes_in_group("player").size() > 0:
 			jugador = get_tree().get_nodes_in_group("player")[0]

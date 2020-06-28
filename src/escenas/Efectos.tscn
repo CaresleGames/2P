@@ -13,5 +13,7 @@ adjustment_brightness = 1.2
 adjustment_contrast = 1.35
 adjustment_saturation = 2.06
 
-[node name="Efectos" type="WorldEnvironment"]
+[node name="Efectos" type="WorldEnvironment" groups=[
+"efectos",
+]]
 environment = SubResource( 1 )
