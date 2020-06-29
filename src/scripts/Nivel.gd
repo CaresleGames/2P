@@ -6,6 +6,8 @@ signal ocultar
 func _ready() -> void:
 	connect("ocultar", self, "ocultar_elementos")
 	ControlJuego.connect("cambio_nivel_siguiente", self, "cambio")
+	if not ControlJuego.inicio_juego:
+		ControlJuego.inicio_juego = true
 
 
 func _process(_delta: float) -> void:

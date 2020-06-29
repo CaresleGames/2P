@@ -13,7 +13,6 @@ var muerto := false
 func _physics_process(_delta: float) -> void:
 	
 	mover()
-	
 
 
 func mover() -> void:
@@ -41,9 +40,9 @@ func mover_y() -> void:
 		movimiento.y = 0
 		puedo_saltar = true
 	
-	if not is_on_floor() and $Izquierda.is_colliding() and not $Centro.is_colliding() and not $Derecha.is_colliding():
+	if not is_on_floor() and $Izquierda.is_colliding() and not $Centro.is_colliding() and not $Derecha.is_colliding() and not is_on_wall():
 		$CoyoteJump.start()
-	if not is_on_floor() and not $Izquierda.is_colliding() and not $Centro.is_colliding() and $Derecha.is_colliding():
+	if not is_on_floor() and not $Izquierda.is_colliding() and not $Centro.is_colliding() and $Derecha.is_colliding() and not is_on_wall():
 		$CoyoteJump.start()
 		
 	if not $CoyoteJump.is_stopped():
@@ -62,7 +61,6 @@ func mover_y() -> void:
 			$SonidoSalto.play()
 			$Anim.play("Salto")
 	if Input.is_action_pressed("ui_salto"):
-		
 		if not $TiempoSalto.is_stopped():
 			movimiento.y = -aceleracion_salto
 			
@@ -70,7 +68,7 @@ func mover_y() -> void:
 
 func _reacomodar() -> void:
 	if muerto:
-		movimiento = Vector2.ZERO
+		set_physics_process(false)
 		$CollisionShape2D.hide()
 		$SprPlayer.hide()
 		$ParticulasMuerte.emitting = true
@@ -81,5 +79,6 @@ func _reacomodar() -> void:
 	position = coordenas_inicio
 	vidas -= 1
 	if vidas >= 1:
+		set_physics_process(true)
 		show()
 
