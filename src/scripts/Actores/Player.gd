@@ -29,7 +29,6 @@ func mover() -> void:
 	$Izquierda.force_raycast_update()
 	$Centro.force_raycast_update()
 	$Derecha.force_raycast_update()
-	$Debug/Valor.text = str(movimiento)
 	movimiento = move_and_slide(movimiento, SUELO, false, 4, .78, false)  
 
 
