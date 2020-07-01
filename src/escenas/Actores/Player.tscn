@@ -145,7 +145,10 @@ __meta__ = {
 margin_top = 26.0
 margin_right = 63.0
 margin_bottom = 40.0
-text = "Distancia:"
+text = "Mover:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Valor" type="Label" parent="Debug"]
 margin_left = 107.0

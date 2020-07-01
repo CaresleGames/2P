@@ -29,7 +29,8 @@ func mover() -> void:
 	$Izquierda.force_raycast_update()
 	$Centro.force_raycast_update()
 	$Derecha.force_raycast_update()
-	movimiento = move_and_slide(movimiento, SUELO)  
+	$Debug/Valor.text = str(movimiento)
+	movimiento = move_and_slide(movimiento, SUELO, false, 4, .78, false)  
 
 
 func mover_y() -> void:
@@ -51,7 +52,6 @@ func mover_y() -> void:
 			$CoyoteJump.stop()
 	if $Izquierda.is_colliding() and $Centro.is_colliding() and $Derecha.is_colliding():
 		puedo_saltar = true
-		$Debug/Valor.text = str(get_global_transform()[2] - $Centro.get_collision_point())
 		if Input.is_action_just_pressed("ui_salto"):
 			movimiento.y = -salto
 			$SonidoSalto.play()
