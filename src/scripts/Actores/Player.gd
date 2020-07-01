@@ -50,6 +50,8 @@ func mover_y() -> void:
 			movimiento.y = -salto
 			$CoyoteJump.stop()
 	if $Izquierda.is_colliding() and $Centro.is_colliding() and $Derecha.is_colliding():
+		puedo_saltar = true
+		$Debug/Valor.text = str(get_global_transform()[2] - $Centro.get_collision_point())
 		if Input.is_action_just_pressed("ui_salto"):
 			movimiento.y = -salto
 			$SonidoSalto.play()
