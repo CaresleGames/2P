@@ -102,9 +102,6 @@ enabled = true
 cast_to = Vector2( 0, 4 )
 collision_mask = 8
 
-[node name="SonidoSalto" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 3 )
-
 [node name="ParticulasMuerte" type="CPUParticles2D" parent="."]
 position = Vector2( 0, -4 )
 emitting = false
@@ -121,6 +118,10 @@ scale_amount = 2.5
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 anims/Salto = SubResource( 2 )
+
+[node name="SonidoSalto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "Sonidos"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

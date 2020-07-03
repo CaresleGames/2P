@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=2]
 [ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/escenas/MenuNivel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/music/placeholder/Juhani Junkala [Retro Game Music Pack] Level 3.wav" type="AudioStream" id=5]
 [ext_resource path="res://src/escenas/objetos/Pinchos.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=9]
@@ -11,6 +12,9 @@
 
 [node name="Nivel5" type="Node2D"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_vertical_guides_": [ 1080.0 ]
+}
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -22,6 +26,9 @@ tile_data = PoolIntArray( 36, 10, 0, 65572, 10, 0, 131108, 10, 0, 196644, 10, 0,
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 80, 240 )
+
+[node name="Camera2D" parent="Player" index="10"]
+limit_right = 1080
 
 [node name="Nivel5" parent="." instance=ExtResource( 4 )]
 
@@ -141,3 +148,10 @@ position = Vector2( 360, 256 )
 [node name="Meta" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1064, 200 )
 siguiente_nivel = ExtResource( 10 )
+
+[node name="MusicaFondo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+bus = "BackgroundMusic"
+
+[editable path="Player"]
