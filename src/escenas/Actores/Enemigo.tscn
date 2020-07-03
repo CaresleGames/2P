@@ -37,4 +37,10 @@ collision_layer = 0
 modulate = Color( 0.917647, 0.129412, 0.258824, 1 )
 position = Vector2( 0, -3 )
 shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -3, 0 )
+enabled = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 8
 [connection signal="body_entered" from="JugadorMuerte" to="." method="_on_JugadorMuerte_body_entered"]

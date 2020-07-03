@@ -21,6 +21,11 @@ func _physics_process(delta: float) -> void:
 		else:
 			movimiento.x = max(movimiento.x - aceleracion, -velocidad)
 		movimiento = move_and_slide(movimiento, SUELO)
+		if not $RayCast2D.is_colliding():
+			direccion *= -1
+			$RayCast2D.enabled = false
+			print("Una vez")
+			print(direccion)
 
 
 func _on_JugadorMuerte_body_entered(body: Node) -> void:
