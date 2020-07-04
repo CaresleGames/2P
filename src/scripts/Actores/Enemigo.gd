@@ -22,7 +22,6 @@ func _physics_process(delta: float) -> void:
 			movimiento.x = max(movimiento.x - aceleracion, -velocidad)
 		movimiento = move_and_slide(movimiento, SUELO)
 		if not $RayCast2D.is_colliding() and $RayCast2D.enabled:
-			print($RayCast2D.enabled)
 			$TiempoRaycast.start()
 
 
@@ -52,11 +51,9 @@ func _on_TiempoRaycast_timeout() -> void:
 		$RayCast2D.position = Vector2(3, 0)
 	else:
 		$RayCast2D.position = Vector2(-3, 0)
-	print('TiempoRaycast True')
 	$ReactivarRaycast.start()
 
 
 func _on_ReactivarRaycast_timeout() -> void:
 	$RayCast2D.enabled = true
-	print('ReactivarRaycast True')
 
