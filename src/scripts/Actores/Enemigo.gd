@@ -21,11 +21,9 @@ func _physics_process(delta: float) -> void:
 		else:
 			movimiento.x = max(movimiento.x - aceleracion, -velocidad)
 		movimiento = move_and_slide(movimiento, SUELO)
-		if not $RayCast2D.is_colliding():
-			direccion *= -1
-			$RayCast2D.enabled = false
-			print("Una vez")
-			print(direccion)
+		if not $RayCast2D.is_colliding() and $RayCast2D.enabled:
+			print($RayCast2D.enabled)
+			$TiempoRaycast.start()
 
 
 func _on_JugadorMuerte_body_entered(body: Node) -> void:
@@ -45,4 +43,20 @@ func muerte_pinchos() -> void:
 	position = padre.global_position
 	vivo = false
 	direccion = -1
+
+
+func _on_TiempoRaycast_timeout() -> void:
+	$RayCast2D.enabled = false
+	direccion *= -1
+	if direccion == 1:
+		$RayCast2D.position = Vector2(3, 0)
+	else:
+		$RayCast2D.position = Vector2(-3, 0)
+	print('TiempoRaycast True')
+	$ReactivarRaycast.start()
+
+
+func _on_ReactivarRaycast_timeout() -> void:
+	$RayCast2D.enabled = true
+	print('ReactivarRaycast True')
 
