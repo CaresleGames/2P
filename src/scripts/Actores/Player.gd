@@ -8,6 +8,8 @@ var puedo_saltar : bool = true
 var vidas_maximas : int = 3
 var vidas := vidas_maximas
 var muerto := false
+var snap := Vector2(0, 16)
+var angulo := deg2rad(45)
 
 
 func _physics_process(_delta: float) -> void:
@@ -29,7 +31,8 @@ func mover() -> void:
 	$Izquierda.force_raycast_update()
 	$Centro.force_raycast_update()
 	$Derecha.force_raycast_update()
-	movimiento = move_and_slide(movimiento, SUELO, false, 4, .78, false)  
+	movimiento = move_and_slide_with_snap(movimiento,
+			 snap, SUELO, true, 4, angulo, false)  
 
 
 func mover_y() -> void:
@@ -38,6 +41,7 @@ func mover_y() -> void:
 
 	if is_on_floor():
 		movimiento.y = 0
+		snap = Vector2(0, 16)
 		puedo_saltar = true
 	
 	if not is_on_floor() and $Izquierda.is_colliding() and not $Centro.is_colliding() and not $Derecha.is_colliding() and not is_on_wall():
@@ -58,6 +62,7 @@ func mover_y() -> void:
 	if Input.is_action_just_pressed("ui_salto"):
 		if puedo_saltar and is_on_floor():
 			movimiento.y = -salto
+			snap = Vector2(0, 0)
 			$TiempoSalto.start()
 			$SonidoSalto.play()
 			$Anim.play("Salto")
