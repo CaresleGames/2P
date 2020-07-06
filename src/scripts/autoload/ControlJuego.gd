@@ -5,8 +5,9 @@ signal reinicio
 signal cambio_nivel
 signal cambio_nivel_siguiente
 
-var jugador
-var enemigo 
+var jugador : KinematicBody2D
+var enemigo : KinematicBody2D
+var pinchos : Array
 var gui_gameover 
 var inicio_juego := false
 var vidas_jugador : int
@@ -30,6 +31,8 @@ func _process(_delta: float) -> void:
 			jugador = get_tree().get_nodes_in_group("player")[0]
 		if get_tree().get_nodes_in_group("enemigo").size() > 0:
 			enemigo = get_tree().get_nodes_in_group("enemigo")[0]
+		if get_tree().get_nodes_in_group("pinchos_caen").size() > 0:
+			pinchos = get_tree().get_nodes_in_group("pinchos_caen")
 		if get_tree().get_nodes_in_group("game_over").size() > 0:
 			gui_gameover = get_tree().get_nodes_in_group("game_over")[0]
 		if jugador.vidas <= 0 and get_tree().get_nodes_in_group("player").size() > 0:
@@ -47,7 +50,11 @@ func _process(_delta: float) -> void:
 
 func _reaparecer_inicio() -> void:
 	jugador._reacomodar()
-	enemigo._reacomodar()
+	if get_tree().get_nodes_in_group("enemigo").size() > 0:
+		enemigo._reacomodar()
+	if get_tree().get_nodes_in_group("pinchos_caen").size() > 0:
+		for p in pinchos:
+			p._reacomodar()
 
 
 func _reinicio() -> void:

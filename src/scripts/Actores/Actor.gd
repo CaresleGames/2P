@@ -17,6 +17,7 @@ var direccion := 0
 
 onready var coordenas_inicio : Vector2 = $".".global_position
 
+
 func _ready() -> void:
 	if tipo == Tipo.JUGADOR:
 		$".".modulate = Colores.COLOR_JUGADOR
