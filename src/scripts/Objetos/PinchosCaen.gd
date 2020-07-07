@@ -20,17 +20,19 @@ func _physics_process(_delta: float) -> void:
 			timer_iniciado = true
 		$RayCast2D.enabled = false
 		emit_signal("iniciar_timer")
-	movimiento = move_and_slide(movimiento)
+	movimiento = move_and_slide(movimiento, Actor.SUELO, true)
 
 
 func _on_Timer_timeout() -> void:
 	movimiento.y = 100
 
 
-func _on_Muerte_body_entered(body: KinematicBody2D) -> void:
+func _on_Muerte_body_entered(body: PhysicsBody2D) -> void:
 	if not body is KinematicBody2D:
 		return
-	$Muerte/CollisionShape2D.call_deferred("disabled", true)
+	if body is StaticBody2D:
+		$Muerte/CollisionShape2D.call_deferred("disabled", true)
+		$Muerte.set_deferred("monitoring", false)
 	if body.collision_layer == 1:
 		set_process(false)
 		body.muerto = true
@@ -47,5 +49,6 @@ func _reacomodar() -> void:
 	yield(get_tree().create_timer(.2), "timeout")
 	$RayCast2D.enabled = true
 	$Muerte/CollisionShape2D.call_deferred("disabled", false)
+	$Muerte.set_deferred("monitoring", true)
 	$".".modulate = Color(1, 1, 1, 1)
 	set_process(true)

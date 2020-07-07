@@ -1,6 +1,7 @@
 extends Node
 
 signal reaparecer_inicio
+signal jugador_acomodado
 signal reinicio
 signal cambio_nivel
 signal cambio_nivel_siguiente
@@ -20,6 +21,7 @@ func _ready() -> void:
 	connect("reinicio", self, "_reinicio")
 	connect("cambio_nivel", self, "_cambio_nivel")
 	connect("cambio_nivel_siguiente", self, "_cambio_nivel_siguiente")
+	connect("jugador_acomodado", self, "_jugador_acomodado")
 
 
 func _process(_delta: float) -> void:
@@ -50,6 +52,9 @@ func _process(_delta: float) -> void:
 
 func _reaparecer_inicio() -> void:
 	jugador._reacomodar()
+
+
+func _jugador_acomodado() -> void:
 	if get_tree().get_nodes_in_group("enemigo").size() > 0:
 		enemigo._reacomodar()
 	if get_tree().get_nodes_in_group("pinchos_caen").size() > 0:

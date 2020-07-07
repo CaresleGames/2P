@@ -84,6 +84,7 @@ func _reacomodar() -> void:
 		muerto = false
 	position = coordenas_inicio
 	vidas -= 1
+	ControlJuego.emit_signal("jugador_acomodado")
 	if vidas >= 1:
 		set_physics_process(true)
 		show()
