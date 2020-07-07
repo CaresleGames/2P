@@ -28,7 +28,7 @@ func _on_Timer_timeout() -> void:
 
 
 func _on_Muerte_body_entered(body: PhysicsBody2D) -> void:
-	if not body is KinematicBody2D:
+	if not body is PhysicsBody2D:
 		return
 	if body is StaticBody2D:
 		$Muerte/CollisionShape2D.call_deferred("disabled", true)
@@ -37,7 +37,8 @@ func _on_Muerte_body_entered(body: PhysicsBody2D) -> void:
 		set_process(false)
 		body.muerto = true
 		ControlJuego.emit_signal("reaparecer_inicio")
-		
+	if body.collision_layer == 32:
+		print('pincho')
 
 
 func _on_Iniciar_Timer() -> void:

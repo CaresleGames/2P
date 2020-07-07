@@ -15,6 +15,9 @@ var vidas_jugador : int
 var niveles : int = 0
 var environment_actual : Environment = load("res://src/escenas/GlowEfectos/Efecto1.tres")
 
+# Variables temporales
+var sonido_muteado := false
+
 
 func _ready() -> void:
 	connect("reaparecer_inicio", self, "_reaparecer_inicio")
@@ -28,6 +31,9 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_efectos"):
 		var efecto_mundo : WorldEnvironment = get_tree().get_nodes_in_group("efectos")[0]
 		efecto_mundo.environment.glow_enabled = not efecto_mundo.environment.glow_enabled
+	if Input.is_action_just_pressed("enabled_sound"):
+		sonido_muteado = not sonido_muteado
+		AudioServer.set_bus_mute(2, sonido_muteado)
 	if inicio_juego:
 		if get_tree().get_nodes_in_group("player").size() > 0:
 			jugador = get_tree().get_nodes_in_group("player")[0]

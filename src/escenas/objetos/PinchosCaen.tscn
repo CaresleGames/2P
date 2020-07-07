@@ -13,6 +13,7 @@ extents = Vector2( 3, 3 )
 "pinchos_caen",
 ]]
 collision_layer = 32
+collision_mask = 33
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -34,7 +35,7 @@ one_shot = true
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Muerte"]
-position = Vector2( 0, 4 )
+position = Vector2( 0, 3 )
 shape = SubResource( 2 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Muerte" to="." method="_on_Muerte_body_entered"]
