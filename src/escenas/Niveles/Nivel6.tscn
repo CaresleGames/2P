@@ -20,7 +20,7 @@ tile_data = PoolIntArray( -524289, 11, 0, -458753, 11, 0, -393217, 11, 0, -32768
 [node name="Efectos" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 600, 188 )
+position = Vector2( 456, 128 )
 
 [node name="Enemigos" type="Node2D" parent="."]
 
@@ -71,3 +71,12 @@ position = Vector2( 760, 168 )
 
 [node name="Pinchos3" parent="PinchosCaen" instance=ExtResource( 8 )]
 position = Vector2( 776, 168 )
+
+[node name="Pinchos4" parent="PinchosCaen" instance=ExtResource( 8 )]
+position = Vector2( 504, 104 )
+
+[node name="Pinchos5" parent="PinchosCaen" instance=ExtResource( 8 )]
+position = Vector2( 536, 120 )
+
+[node name="Pinchos6" parent="PinchosCaen" instance=ExtResource( 8 )]
+position = Vector2( 520, 104 )

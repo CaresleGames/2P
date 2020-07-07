@@ -30,7 +30,7 @@ func _on_Timer_timeout() -> void:
 func _on_Muerte_body_entered(body: KinematicBody2D) -> void:
 	if not body is KinematicBody2D:
 		return
-	$Muerte/CollisionShape2D.disabled = true
+	$Muerte/CollisionShape2D.call_deferred("disabled", true)
 	if body.collision_layer == 1:
 		set_process(false)
 		body.muerto = true
@@ -46,6 +46,6 @@ func _reacomodar() -> void:
 	position = coordenas_inicio
 	yield(get_tree().create_timer(.2), "timeout")
 	$RayCast2D.enabled = true
+	$Muerte/CollisionShape2D.call_deferred("disabled", false)
 	$".".modulate = Color(1, 1, 1, 1)
-	$Muerte/CollisionShape2D.disabled = false
 	set_process(true)
