@@ -8,6 +8,7 @@ func _ready() -> void:
 	ControlJuego.connect("cambio_nivel_siguiente", self, "cambio")
 	if not ControlJuego.inicio_juego:
 		ControlJuego.inicio_juego = true
+	print(ControlJuego.inicio_juego)
 
 
 func _process(_delta: float) -> void:

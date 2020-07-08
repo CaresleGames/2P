@@ -69,18 +69,17 @@ func mover_y() -> void:
 	if Input.is_action_pressed("ui_salto"):
 		if not $TiempoSalto.is_stopped():
 			movimiento.y = -aceleracion_salto
-			
 
 
 func _reacomodar() -> void:
 	if muerto:
 		set_physics_process(false)
-		$CollisionShape2D.hide()
+		$CollisionShape2D.call_deferred("disabled", true)
 		$SprPlayer.hide()
 		$ParticulasMuerte.emitting = true
 		yield(get_tree().create_timer(1), "timeout")
 		$SprPlayer.show()
-		$CollisionShape2D.show()
+		$CollisionShape2D.call_deferred("disabled", false)
 		muerto = false
 	position = coordenas_inicio
 	vidas -= 1
