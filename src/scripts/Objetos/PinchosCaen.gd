@@ -37,8 +37,6 @@ func _on_Muerte_body_entered(body: PhysicsBody2D) -> void:
 		set_process(false)
 		body.muerto = true
 		ControlJuego.emit_signal("reaparecer_inicio")
-	if body.collision_layer == 32:
-		print('pincho')
 
 
 func _on_Iniciar_Timer() -> void:
