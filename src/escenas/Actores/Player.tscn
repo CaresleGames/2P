@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/player.png" type="Texture" id=1]
 [ext_resource path="res://src/scripts/Actores/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/sfx/jump.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sfx/Death.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 4 )
@@ -105,15 +106,20 @@ collision_mask = 8
 [node name="ParticulasMuerte" type="CPUParticles2D" parent="."]
 position = Vector2( 0, -4 )
 emitting = false
-amount = 150
-lifetime = 0.3
+amount = 170
+lifetime = 0.35
 one_shot = true
-explosiveness = 0.6
+speed_scale = 0.5
+explosiveness = 0.73
+randomness = 0.15
 emission_shape = 1
-emission_sphere_radius = 1.0
+emission_sphere_radius = 7.0
 spread = 180.0
 gravity = Vector2( 0, 0 )
-initial_velocity = 50.0
+initial_velocity = 100.0
+initial_velocity_random = 0.15
+angular_velocity = 45.0
+angular_velocity_random = 1.0
 scale_amount = 2.5
 
 [node name="Anim" type="AnimationPlayer" parent="."]
@@ -129,3 +135,7 @@ smoothing_enabled = true
 drag_margin_left = 0.0
 drag_margin_right = 0.0
 editor_draw_drag_margin = true
+
+[node name="SonidoMuerte" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Sonidos"

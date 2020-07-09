@@ -72,6 +72,7 @@ func mover_y() -> void:
 
 
 func _reacomodar() -> void:
+	$SonidoMuerte.play()
 	if muerto:
 		set_physics_process(false)
 		$CollisionShape2D.call_deferred("disabled", true)
