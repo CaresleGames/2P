@@ -5,7 +5,7 @@ signal iniciar_timer
 var movimiento := Vector2.ZERO
 var timer_iniciado := false
 
-onready var coordenas_inicio : Vector2 = $".".global_position
+onready var coordenas_inicio : Vector2 = $".".position
 
 
 func _ready() -> void:
