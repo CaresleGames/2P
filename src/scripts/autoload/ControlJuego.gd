@@ -43,12 +43,13 @@ func _process(_delta: float) -> void:
 			pinchos = get_tree().get_nodes_in_group("pinchos_caen")
 		if get_tree().get_nodes_in_group("game_over").size() > 0:
 			gui_gameover = get_tree().get_nodes_in_group("game_over")[0]
-		if jugador.vidas <= 0 and get_tree().get_nodes_in_group("player").size() > 0:
-			gui_gameover.show()
-			gui_gameover.pantalla_gameover = true
-			jugador.hide()
-			if get_tree().get_nodes_in_group("enemigo").size() > 0:
-				enemigo.hide()
+		if get_tree().get_nodes_in_group("player").size() > 0:
+			if  jugador.vidas <= 0:
+				gui_gameover.show()
+				gui_gameover.pantalla_gameover = true
+				jugador.hide()
+				if get_tree().get_nodes_in_group("enemigo").size() > 0:
+					enemigo.hide()
 		
 	if Input.is_action_just_pressed("ui_accept"):
 		var value = get_tree().reload_current_scene()

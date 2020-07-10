@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/font/fuente_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=2]
 
 [node name="Creditos" type="Control"]
 anchor_right = 1.0
@@ -20,8 +21,11 @@ margin_top = -13.0
 margin_right = 128.0
 margin_bottom = 13.0
 text = "Gracias por jugar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="."]
+[node name="CreditosLabel" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -32,5 +36,10 @@ margin_right = 148.0
 margin_bottom = 146.0
 text = "Creditos
 
-Programación: Caresle
+Caresle
 Música: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Efectos" parent="." instance=ExtResource( 2 )]

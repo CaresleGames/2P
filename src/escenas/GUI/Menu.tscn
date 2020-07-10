@@ -38,7 +38,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 93, 128 ), Vector2( 93, 128 ) ]
+"values": [ Vector2( 93, 128 ), Vector2( 93, 98 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Iniciar:rect_position")
@@ -50,7 +50,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 112, 169 ), Vector2( 112, 169 ) ]
+"values": [ Vector2( 112, 169 ), Vector2( 112, 139 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Iniciar/Label:rect_position")
@@ -74,7 +74,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 256, 168 ), Vector2( 256, 168 ) ]
+"values": [ Vector2( 256, 168 ), Vector2( 256, 138 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Salir/Label:rect_position")
@@ -87,6 +87,18 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Twi:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 246 ), Vector2( 0, 246 ) ]
 }
 
 [node name="Menu" type="Control"]
@@ -106,9 +118,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -147.0
-margin_top = -8.0
+margin_top = -38.0
 margin_right = 147.0
-margin_bottom = 18.0
+margin_bottom = -12.0
 text = "Proyecto Plataforma"
 align = 1
 __meta__ = {
@@ -120,10 +132,10 @@ anchor_left = 0.233
 anchor_top = 0.622
 anchor_right = 0.467
 anchor_bottom = 0.735
-margin_left = 0.159996
-margin_top = -0.18399
+margin_left = 0.160004
+margin_top = -30.184
 margin_right = -0.160004
-margin_bottom = 2.08
+margin_bottom = -27.92
 texture_normal = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -142,10 +154,10 @@ anchor_left = 0.533
 anchor_top = 0.618
 anchor_right = 0.767
 anchor_bottom = 0.743
-margin_left = 0.159973
-margin_top = -0.0959778
-margin_right = -0.160004
-margin_bottom = -2.09598
+margin_left = 0.160004
+margin_top = -30.096
+margin_right = -0.159973
+margin_bottom = -32.096
 texture_normal = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="Salir"]
@@ -165,5 +177,15 @@ autoplay = "Entrada"
 anims/Entrada = SubResource( 2 )
 
 [node name="Efectos" parent="." instance=ExtResource( 8 )]
+
+[node name="Twi" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -26.0
+margin_right = 146.0
+text = "@Caresle1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Iniciar" to="." method="_on_Iniciar_pressed"]
 [connection signal="pressed" from="Salir" to="." method="_on_Salir_pressed"]
