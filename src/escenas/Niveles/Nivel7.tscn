@@ -50,7 +50,7 @@ position = Vector2( 584, 136 )
 [node name="Grupo1" type="Node2D" parent="Pinchos"]
 
 [node name="Pinchos" parent="Pinchos/Grupo1" instance=ExtResource( 5 )]
-position = Vector2( 408, 224 )
+position = Vector2( 400, 224 )
 
 [node name="Pinchos2" parent="Pinchos/Grupo1" instance=ExtResource( 5 )]
 position = Vector2( 456, 224 )
