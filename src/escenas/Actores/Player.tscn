@@ -131,6 +131,7 @@ bus = "Sonidos"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+limit_smoothed = true
 smoothing_enabled = true
 drag_margin_left = 0.0
 drag_margin_right = 0.0
@@ -139,15 +140,3 @@ editor_draw_drag_margin = true
 [node name="SonidoMuerte" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 bus = "Sonidos"
-
-[node name="ParticulasMovimiento" type="CPUParticles2D" parent="."]
-emitting = false
-amount = 64
-lifetime = 0.2
-explosiveness = 1.0
-emission_shape = 1
-emission_sphere_radius = 4.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 120.0
-scale_amount = 5.0
-scale_amount_random = 1.0
