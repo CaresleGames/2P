@@ -12,5 +12,6 @@ func _process(_delta: float) -> void:
 
 
 func _on_Button_pressed() -> void:
+	$Button/Sonido.play()
 	pantalla_gameover = false
 	ControlJuego.emit_signal("reinicio")
