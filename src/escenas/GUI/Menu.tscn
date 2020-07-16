@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/scripts/GUI/Menu.gd" type="Script" id=1]
 [ext_resource path="res://src/escenas/Niveles/Nivel1.tscn" type="PackedScene" id=2]
@@ -8,8 +8,6 @@
 [ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/font/Mystery Font.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/music/placeholder/Juhani Junkala [Retro Game Music Pack] Title Screen.ogg" type="AudioStream" id=9]
-[ext_resource path="res://assets/sfx/pulsar_boton.wav" type="AudioStream" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 extra_spacing_top = 10
@@ -135,7 +133,7 @@ margin_left = -147.0
 margin_top = -38.0
 margin_right = 147.0
 margin_bottom = -12.0
-text = "Proyecto Plataforma"
+text = "2P"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -162,10 +160,6 @@ margin_right = 16.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Iniciar"
-
-[node name="Sonido" type="AudioStreamPlayer" parent="Iniciar"]
-stream = ExtResource( 10 )
-bus = "Sonidos"
 
 [node name="Salir" type="TextureButton" parent="."]
 anchor_left = 0.533
@@ -216,10 +210,5 @@ text = "Version 0.1.0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Musica" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-autoplay = true
-bus = "BackgroundMusic"
 [connection signal="pressed" from="Iniciar" to="." method="_on_Iniciar_pressed"]
 [connection signal="pressed" from="Salir" to="." method="_on_Salir_pressed"]

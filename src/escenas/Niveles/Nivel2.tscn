@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=10]
 [ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=11]
-[ext_resource path="res://src/MusicaFondo.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 144, 8 )
@@ -97,8 +96,6 @@ shape = SubResource( 2 )
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource( 7 )]
 
 [node name="Efectos" parent="." instance=ExtResource( 11 )]
-
-[node name="MusicaFondo" parent="." instance=ExtResource( 12 )]
 
 [editable path="Player"]
 

@@ -5,6 +5,5 @@
 
 [node name="MusicaFondo" type="AudioStreamPlayer"]
 stream = ExtResource( 1 )
-autoplay = true
 bus = "BackgroundMusic"
 script = ExtResource( 2 )

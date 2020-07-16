@@ -39,7 +39,6 @@ func _process(delta: float) -> void:
  
 
 func _on_Iniciar_pressed() -> void:
-	$Iniciar/Sonido.play()
 	$Transicion.show()
 	anim.play("Entrada")
 	yield(anim, "animation_finished")
