@@ -28,12 +28,12 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-#	if Input.is_action_just_pressed("ui_efectos"):
-#		var efecto_mundo : WorldEnvironment = get_tree().get_nodes_in_group("efectos")[0]
-#		efecto_mundo.environment.glow_enabled = not efecto_mundo.environment.glow_enabled
-#	if Input.is_action_just_pressed("enabled_sound"):
-#		sonido_muteado = not sonido_muteado
-#		AudioServer.set_bus_mute(2, sonido_muteado)
+	if Input.is_action_just_pressed("ui_efectos"):
+		var efecto_mundo : WorldEnvironment = get_tree().get_nodes_in_group("efectos")[0]
+		efecto_mundo.environment.glow_enabled = not efecto_mundo.environment.glow_enabled
+	if Input.is_action_just_pressed("enabled_sound"):
+		sonido_muteado = not sonido_muteado
+		AudioServer.set_bus_mute(2, sonido_muteado)
 	if inicio_juego:
 		if get_tree().get_nodes_in_group("player").size() > 0:
 			jugador = get_tree().get_nodes_in_group("player")[0]
@@ -51,9 +51,9 @@ func _process(_delta: float) -> void:
 				if get_tree().get_nodes_in_group("enemigo").size() > 0:
 					enemigo.hide()
 		
-#	if Input.is_action_just_pressed("ui_accept"):
-#		var value = get_tree().reload_current_scene()
-#		print(value)
+	if Input.is_action_just_pressed("ui_accept"):
+		var value = get_tree().reload_current_scene()
+		print(value)
 	
 
 

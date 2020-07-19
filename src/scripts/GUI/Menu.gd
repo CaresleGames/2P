@@ -14,11 +14,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_right"):
+		$CambiarOpcion.play()
 		if boton_selecionado == 0:
 			boton_selecionado = 1
 		else:
 			boton_selecionado = 0
 	if Input.is_action_just_pressed("ui_left"):
+		$CambiarOpcion.play()
 		if boton_selecionado == 1:
 			boton_selecionado = 0
 		else:
@@ -39,6 +41,7 @@ func _process(delta: float) -> void:
  
 
 func _on_Iniciar_pressed() -> void:
+	$Iniciar/Audio.play()
 	$Transicion.show()
 	anim.play("Entrada")
 	yield(anim, "animation_finished")
@@ -50,4 +53,5 @@ func _on_Iniciar_pressed() -> void:
 
 
 func _on_Salir_pressed() -> void:
+	$Salir/Audio.play()
 	get_tree().quit()

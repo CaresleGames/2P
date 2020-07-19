@@ -13,7 +13,6 @@ var angulo := deg2rad(45)
 
 
 func _physics_process(_delta: float) -> void:
-	
 	mover()
 
 
@@ -75,6 +74,7 @@ func _reacomodar() -> void:
 	$SonidoMuerte.play()
 	if muerto:
 		set_physics_process(false)
+		$Camera2D/AnimCam.play("Shake")
 		$CollisionShape2D.call_deferred("disabled", true)
 		$SprPlayer.hide()
 		$ParticulasMuerte.emitting = true
