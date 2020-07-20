@@ -1,31 +1,18 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
-[ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/escenas/Niveles/Nivel3.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/escenas/Niveles/NivelEtiqueta.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/escenas/Niveles/NivelEtiqueta.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/escenas/objetos/GameOver.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/escenas/objetos/Fin.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=10]
-[ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=11]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 144, 8 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 240, 8 )
+[ext_resource path="res://src/escenas/Niveles/Nivel3.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/escenas/objetos/Fin.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=11]
 
 [node name="Nivel2" type="Node2D"]
-script = ExtResource( 10 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 270.0, 0.0 ],
-"_edit_vertical_guides_": [ 480.0, 0.0 ]
-}
-
-[node name="Fondo" parent="." instance=ExtResource( 2 )]
+script = ExtResource( 11 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -33,10 +20,10 @@ cell_size = Vector2( 16, 16 )
 collision_layer = 8
 collision_mask = 5
 format = 1
-tile_data = PoolIntArray( 786439, 0, 0, 786440, 1, 0, 786441, 2, 0, 786447, 0, 0, 786448, 1, 0, 786449, 1, 0, 786450, 2, 0 )
+tile_data = PoolIntArray( 589839, 5, 0, 655369, 5, 0, 655372, 5, 0, 655375, 12, 0, 655380, 5, 0, 720905, 7, 0, 720906, 1, 0, 720907, 1, 0, 720908, 14, 0, 720909, 1, 0, 720910, 1, 0, 720911, 14, 0, 720912, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 1, 0, 720916, 8, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 136, 176 )
+position = Vector2( 176, 176 )
 
 [node name="Camera2D" parent="Player" index="10"]
 limit_left = 0
@@ -44,63 +31,33 @@ limit_top = 0
 limit_right = 480
 limit_bottom = 270
 
-[node name="Meta" parent="." instance=ExtResource( 4 )]
-position = Vector2( 272, 176 )
-siguiente_nivel = ExtResource( 5 )
+[node name="Nivel" parent="." instance=ExtResource( 4 )]
 
-[node name="Limites" type="Node2D" parent="."]
-position = Vector2( 104, 0 )
-
-[node name="Fin3" parent="Limites" instance=ExtResource( 8 )]
-position = Vector2( 384, 128 )
-rotation = 1.57079
-
-[node name="Sprite" parent="Limites/Fin3" index="0"]
-position = Vector2( 1.82326, 2.38419e-07 )
-scale = Vector2( 35.6808, 2 )
-
-[node name="CollisionShape2D" parent="Limites/Fin3" index="1"]
-shape = SubResource( 1 )
-
-[node name="Fin4" parent="Limites" instance=ExtResource( 8 )]
-position = Vector2( 136, 280 )
-rotation = 3.14159
-
-[node name="Sprite" parent="Limites/Fin4" index="0"]
-position = Vector2( 0.275784, 2.38419e-07 )
-scale = Vector2( 59.9435, 2 )
-
-[node name="CollisionShape2D" parent="Limites/Fin4" index="1"]
-shape = SubResource( 2 )
-
-[node name="Fin5" parent="Limites" instance=ExtResource( 8 )]
-position = Vector2( -112, 144 )
-rotation = 4.71238
-
-[node name="Sprite" parent="Limites/Fin5" index="0"]
-position = Vector2( 0.275784, 2.38419e-07 )
-scale = Vector2( 59.9435, 2 )
-
-[node name="CollisionShape2D" parent="Limites/Fin5" index="1"]
-shape = SubResource( 2 )
-
-[node name="Nivel" parent="." instance=ExtResource( 6 )]
-margin_bottom = 26.0
+[node name="Meta" parent="." instance=ExtResource( 5 )]
+position = Vector2( 304, 168 )
+siguiente_nivel = ExtResource( 8 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=[
 "canvas_padre",
 ]]
 
-[node name="Transicion" parent="CanvasLayer" instance=ExtResource( 9 )]
+[node name="Transicion" parent="CanvasLayer" instance=ExtResource( 10 )]
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource( 7 )]
 
-[node name="Efectos" parent="." instance=ExtResource( 11 )]
+[node name="Limites" type="Node2D" parent="."]
+
+[node name="Fin" parent="Limites" instance=ExtResource( 9 )]
+position = Vector2( 240, 280 )
+
+[node name="Fin2" parent="Limites" instance=ExtResource( 9 )]
+position = Vector2( 488, 88 )
+rotation = -1.57079
+
+[node name="Fin3" parent="Limites" instance=ExtResource( 9 )]
+position = Vector2( -8, 96 )
+rotation = -1.57079
+
+[node name="Efectos" parent="." instance=ExtResource( 2 )]
 
 [editable path="Player"]
-
-[editable path="Limites/Fin3"]
-
-[editable path="Limites/Fin4"]
-
-[editable path="Limites/Fin5"]

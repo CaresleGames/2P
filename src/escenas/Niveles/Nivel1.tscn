@@ -1,24 +1,31 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
-[ext_resource path="res://src/escenas/objetos/Pinchos.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/escenas/MenuNivel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=7]
-[ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=10]
-[ext_resource path="res://src/escenas/Actores/Enemigo.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/escenas/Niveles/Nivel2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/escenas/Niveles/NivelEtiqueta.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/escenas/objetos/GameOver.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/escenas/objetos/Fin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=10]
+[ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 144, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 240, 8 )
 
 [node name="Nivel1" type="Node2D"]
-script = ExtResource( 7 )
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 270.0, 0.0 ],
 "_edit_vertical_guides_": [ 480.0, 0.0 ]
 }
 
-[node name="Efectos" parent="." instance=ExtResource( 10 )]
-
-[node name="Player" parent="." instance=ExtResource( 8 )]
-position = Vector2( 184, 224 )
+[node name="Fondo" parent="." instance=ExtResource( 2 )]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -26,54 +33,74 @@ cell_size = Vector2( 16, 16 )
 collision_layer = 8
 collision_mask = 5
 format = 1
-tile_data = PoolIntArray( 589814, 13, 0, 589815, 13, 0, 589816, 13, 0, 589817, 13, 0, 589818, 13, 0, 589819, 13, 0, 589820, 13, 0, 589821, 13, 0, 589822, 13, 0, 589823, 13, 0, 524288, 13, 0, 524289, 13, 0, 524290, 13, 0, 524291, 13, 0, 524292, 13, 0, 524293, 13, 0, 524294, 13, 0, 524295, 4, 0, 589831, 11, 0, 655367, 11, 0, 720903, 11, 0, 786439, 11, 0, 786474, 3, 0, 786475, 4, 0, 851975, 11, 0, 851989, 3, 0, 851990, 13, 0, 851991, 4, 0, 851994, 3, 0, 851995, 4, 0, 852000, 3, 0, 852001, 13, 0, 852002, 4, 0, 852009, 3, 0, 852011, 11, 0, 917512, 13, 0, 917513, 13, 0, 917514, 13, 0, 917515, 13, 0, 917516, 13, 0, 917517, 13, 0, 917518, 13, 0, 917519, 13, 0, 917520, 13, 0, 917521, 13, 0, 917522, 13, 0, 917523, 13, 0, 917524, 13, 0, 917528, 13, 0, 917529, 13, 0, 917532, 13, 0, 917533, 13, 0, 917534, 13, 0, 917535, 13, 0, 917539, 13, 0, 917540, 13, 0, 917541, 13, 0, 917542, 13, 0, 917543, 13, 0, 917544, 13, 0, 917548, 13, 0, 917549, 4, 0, 917555, 3, 0, 917556, 13, 0, 917557, 13, 0, 917558, 13, 0, 917559, 4, 0, 983086, 13, 0, 983087, 13, 0, 983088, 13, 0, 983089, 13, 0, 983090, 13, 0 )
+tile_data = PoolIntArray( -131065, 14, 0, -131064, 14, 0, -131063, 14, 0, -131062, 14, 0, -131061, 14, 0, -131060, 14, 0, -131059, 14, 0, -131058, 14, 0, -131057, 14, 0, -131056, 14, 0, -131055, 14, 0, -131054, 14, 0, -131053, 14, 0, -131052, 14, 0, -131051, 14, 0, -131050, 14, 0, -65530, 11, 0, -65513, 10, 0, 6, 11, 0, 23, 10, 0, 65542, 11, 0, 65559, 10, 0, 131078, 11, 0, 131095, 10, 0, 196614, 11, 0, 196631, 10, 0, 262150, 11, 0, 262167, 10, 0, 327686, 11, 0, 327703, 10, 0, 393222, 11, 0, 393239, 10, 0, 458758, 11, 0, 458775, 10, 0, 524294, 11, 0, 524311, 10, 0, 589830, 11, 0, 589847, 10, 0, 655366, 11, 0, 655383, 10, 0, 720902, 11, 0, 720919, 10, 0, 786438, 11, 0, 786455, 10, 0, 851974, 11, 0, 851991, 10, 0, 917510, 11, 0, 917527, 10, 0, 983047, 13, 0, 983048, 13, 0, 983049, 13, 0, 983050, 13, 0, 983051, 13, 0, 983052, 13, 0, 983053, 13, 0, 983054, 13, 0, 983055, 13, 0, 983056, 13, 0, 983057, 13, 0, 983058, 13, 0, 983059, 13, 0, 983060, 13, 0, 983061, 13, 0, 983062, 13, 0 )
 
-[node name="Pinchos" type="Node2D" parent="."]
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 136, 176 )
 
-[node name="Grupo1" type="Node2D" parent="Pinchos"]
+[node name="Camera2D" parent="Player" index="10"]
+limit_left = 0
+limit_top = 0
+limit_right = 480
+limit_bottom = 270
 
-[node name="Pinchos" parent="Pinchos/Grupo1" instance=ExtResource( 2 )]
-position = Vector2( 392, 224 )
+[node name="Meta" parent="." instance=ExtResource( 4 )]
+position = Vector2( 272, 232 )
+siguiente_nivel = ExtResource( 5 )
 
-[node name="Pinchos2" parent="Pinchos/Grupo1" instance=ExtResource( 2 )]
-position = Vector2( 408, 224 )
+[node name="Limites" type="Node2D" parent="."]
+position = Vector2( 104, 0 )
 
-[node name="Grupo2" type="Node2D" parent="Pinchos"]
-position = Vector2( 64, 0 )
+[node name="Fin3" parent="Limites" instance=ExtResource( 8 )]
+position = Vector2( 384, 128 )
+rotation = 1.57079
 
-[node name="Pinchos" parent="Pinchos/Grupo2" instance=ExtResource( 2 )]
-position = Vector2( 392, 224 )
+[node name="Sprite" parent="Limites/Fin3" index="0"]
+position = Vector2( 1.82326, 2.38419e-07 )
+scale = Vector2( 35.6808, 2 )
 
-[node name="Pinchos2" parent="Pinchos/Grupo2" instance=ExtResource( 2 )]
-position = Vector2( 408, 224 )
+[node name="CollisionShape2D" parent="Limites/Fin3" index="1"]
+shape = SubResource( 1 )
 
-[node name="Pinchos3" parent="Pinchos/Grupo2" instance=ExtResource( 2 )]
-position = Vector2( 424, 224 )
+[node name="Fin4" parent="Limites" instance=ExtResource( 8 )]
+position = Vector2( 136, 280 )
+rotation = 3.14159
 
-[node name="Pinchos4" parent="Pinchos/Grupo2" instance=ExtResource( 2 )]
-position = Vector2( 440, 224 )
+[node name="Sprite" parent="Limites/Fin4" index="0"]
+position = Vector2( 0.275784, 2.38419e-07 )
+scale = Vector2( 59.9435, 2 )
 
-[node name="Grupo3" type="Node2D" parent="Pinchos"]
-position = Vector2( 360, 16 )
+[node name="CollisionShape2D" parent="Limites/Fin4" index="1"]
+shape = SubResource( 2 )
 
-[node name="Pinchos" parent="Pinchos/Grupo3" instance=ExtResource( 2 )]
-position = Vector2( 392, 224 )
+[node name="Fin5" parent="Limites" instance=ExtResource( 8 )]
+position = Vector2( -112, 144 )
+rotation = 4.71238
 
-[node name="Pinchos2" parent="Pinchos/Grupo3" instance=ExtResource( 2 )]
-position = Vector2( 408, 224 )
+[node name="Sprite" parent="Limites/Fin5" index="0"]
+position = Vector2( 0.275784, 2.38419e-07 )
+scale = Vector2( 59.9435, 2 )
 
-[node name="Pinchos3" parent="Pinchos/Grupo3" instance=ExtResource( 2 )]
-position = Vector2( 424, 224 )
+[node name="CollisionShape2D" parent="Limites/Fin5" index="1"]
+shape = SubResource( 2 )
 
-[node name="Pinchos4" parent="Pinchos/Grupo3" instance=ExtResource( 2 )]
-position = Vector2( 440, 224 )
+[node name="Nivel" parent="." instance=ExtResource( 6 )]
+margin_bottom = 26.0
 
-[node name="Enemigos" type="Node2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=[
+"canvas_padre",
+]]
 
-[node name="Enemigo" parent="Enemigos" instance=ExtResource( 11 )]
-position = Vector2( 640, 224 )
+[node name="Transicion" parent="CanvasLayer" instance=ExtResource( 9 )]
 
-[node name="Enemigo2" parent="Enemigos" instance=ExtResource( 11 )]
-position = Vector2( 824, 224 )
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 7 )]
 
-[node name="Nivel1" parent="." instance=ExtResource( 3 )]
+[node name="Efectos" parent="." instance=ExtResource( 11 )]
+
+[editable path="Player"]
+
+[editable path="Limites/Fin3"]
+
+[editable path="Limites/Fin4"]
+
+[editable path="Limites/Fin5"]

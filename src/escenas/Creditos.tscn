@@ -1,12 +1,42 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/font/fuente_theme.tres" type="Theme" id=1]
 [ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/escenas/Creditos.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "UP"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CreditosLabel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 92, 303 ), Vector2( 92, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Agradecimientos:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 112, 122 ), Vector2( 112, -122 ) ]
+}
 
 [node name="Creditos" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -33,13 +63,26 @@ anchor_bottom = 1.0
 margin_left = -148.0
 margin_top = 33.0
 margin_right = 148.0
-margin_bottom = 146.0
+margin_bottom = 291.0
 text = "Creditos
 
-Caresle
-Música: "
+Programación y Arte:
+@Caresle1
+
+SFX:
+Kenney,
+
+Música:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Efectos" parent="." instance=ExtResource( 2 )]
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+anims/UP = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

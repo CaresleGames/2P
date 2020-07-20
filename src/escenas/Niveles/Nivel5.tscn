@@ -4,17 +4,27 @@
 [ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=2]
 [ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/escenas/MenuNivel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/MusicaFondo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/escenas/Actores/Enemigo.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/escenas/objetos/Pinchos.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/escenas/Niveles/Nivel6.tscn" type="PackedScene" id=10]
 
-[node name="Nivel5" type="Node2D"]
+[node name="Nivel1" type="Node2D"]
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_vertical_guides_": [ 1080.0 ]
+"_edit_horizontal_guides_": [ 270.0, 0.0 ],
+"_edit_vertical_guides_": [ 480.0, 0.0 ]
 }
+
+[node name="Efectos" parent="." instance=ExtResource( 8 )]
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 184, 224 )
+
+[node name="Meta" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1232, 264 )
+siguiente_nivel = ExtResource( 10 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -22,133 +32,126 @@ cell_size = Vector2( 16, 16 )
 collision_layer = 8
 collision_mask = 5
 format = 1
-tile_data = PoolIntArray( 36, 10, 0, 65572, 10, 0, 131108, 10, 0, 196644, 10, 0, 262144, 13, 0, 262145, 13, 0, 262146, 13, 0, 262147, 4, 0, 262180, 10, 0, 327683, 11, 0, 327716, 10, 0, 393219, 11, 0, 393252, 10, 0, 458755, 11, 0, 458788, 7, 0, 458789, 14, 0, 458790, 14, 0, 458791, 14, 0, 458792, 14, 0, 524291, 11, 0, 524329, 10, 0, 589827, 11, 0, 589865, 10, 0, 589876, 14, 0, 589877, 14, 0, 589878, 14, 0, 589879, 14, 0, 589880, 14, 0, 589881, 14, 0, 589882, 14, 0, 589883, 14, 0, 589884, 14, 0, 589885, 14, 0, 589886, 14, 0, 589887, 14, 0, 589888, 14, 0, 589889, 14, 0, 589890, 14, 0, 655363, 11, 0, 655401, 10, 0, 655410, 14, 0, 655411, 8, 0, 655427, 10, 0, 720899, 11, 0, 720937, 7, 0, 720938, 14, 0, 720939, 14, 0, 720940, 14, 0, 720943, 14, 0, 720944, 14, 0, 720945, 8, 0, 720963, 10, 0, 786435, 11, 0, 786477, 7, 0, 786478, 8, 0, 786491, 3, 0, 786492, 4, 0, 786499, 10, 0, 851971, 11, 0, 851987, 5, 0, 852022, 3, 0, 852023, 4, 0, 852027, 7, 0, 852028, 8, 0, 852034, 3, 0, 917507, 11, 0, 917518, 5, 0, 917523, 12, 0, 917529, 3, 0, 917530, 4, 0, 917534, 3, 0, 917535, 13, 0, 917536, 13, 0, 917537, 13, 0, 917538, 13, 0, 917539, 4, 0, 917557, 3, 0, 917559, 11, 0, 917569, 3, 0, 983044, 13, 0, 983045, 13, 0, 983046, 13, 0, 983047, 13, 0, 983048, 13, 0, 983049, 13, 0, 983050, 13, 0, 983051, 13, 0, 983052, 13, 0, 983053, 13, 0, 983055, 15, 0, 983059, 12, 0, 983065, 10, 0, 983066, 11, 0, 983070, 10, 0, 983075, 11, 0, 983079, 3, 0, 983080, 13, 0, 983081, 13, 0, 983082, 13, 0, 983083, 13, 0, 983084, 4, 0, 983087, 3, 0, 983088, 13, 0, 983089, 13, 0, 983090, 4, 0, 983093, 10, 0, 983095, 11, 0, 983104, 3, 0, 1048592, 13, 0, 1048593, 13, 0, 1048594, 13, 0, 1048596, 13, 0, 1048597, 13, 0, 1048598, 13, 0, 1048599, 13, 0, 1048600, 13, 0, 1048603, 13, 0, 1048604, 13, 0, 1048605, 13, 0, 1048612, 13, 0, 1048613, 13, 0, 1048614, 13, 0, 1048621, 13, 0, 1048622, 13, 0, 1048627, 13, 0, 1048628, 13, 0, 1048632, 13, 0, 1048633, 13, 0, 1048634, 13, 0, 1048635, 13, 0, 1048636, 13, 0, 1048637, 13, 0, 1048638, 13, 0, 1048639, 13, 0 )
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 80, 240 )
-
-[node name="Camera2D" parent="Player" index="10"]
-limit_right = 1080
-
-[node name="Nivel5" parent="." instance=ExtResource( 4 )]
-
-[node name="Limites" type="Node2D" parent="."]
+tile_data = PoolIntArray( 21, 10, 0, 34, 11, 0, 65557, 10, 0, 65570, 11, 0, 131093, 10, 0, 131106, 11, 0, 196629, 10, 0, 196642, 11, 0, 262165, 10, 0, 262178, 11, 0, 262217, 10, 0, 327701, 10, 0, 327714, 11, 0, 327753, 10, 0, 393237, 10, 0, 393250, 11, 0, 393289, 10, 0, 458773, 10, 0, 458786, 11, 0, 458825, 10, 0, 589814, 13, 0, 589815, 13, 0, 589816, 13, 0, 589817, 13, 0, 589818, 13, 0, 589819, 13, 0, 589820, 13, 0, 589821, 13, 0, 589822, 13, 0, 589823, 13, 0, 524288, 13, 0, 524289, 13, 0, 524290, 13, 0, 524291, 13, 0, 524292, 13, 0, 524293, 13, 0, 524294, 13, 0, 524295, 4, 0, 524309, 10, 0, 524322, 11, 0, 524361, 10, 0, 589831, 11, 0, 589845, 10, 0, 589848, 14, 0, 589849, 14, 0, 589850, 14, 0, 589851, 14, 0, 589852, 14, 0, 589853, 14, 0, 589854, 14, 0, 589855, 14, 0, 589856, 14, 0, 589857, 14, 0, 589858, 8, 0, 589897, 10, 0, 655367, 11, 0, 655381, 7, 0, 655382, 14, 0, 655383, 8, 0, 655433, 7, 0, 655434, 14, 0, 655435, 14, 0, 655436, 14, 0, 655437, 14, 0, 655438, 14, 0, 655439, 14, 0, 655440, 14, 0, 720903, 11, 0, 720977, 10, 0, 786439, 11, 0, 786474, 3, 0, 786475, 4, 0, 786513, 10, 0, 851975, 11, 0, 851989, 3, 0, 851990, 13, 0, 851991, 4, 0, 851994, 3, 0, 851995, 4, 0, 852000, 3, 0, 852001, 13, 0, 852002, 4, 0, 852008, 3, 0, 852009, 13, 0, 852011, 11, 0, 852049, 10, 0, 917512, 13, 0, 917513, 13, 0, 917514, 13, 0, 917515, 13, 0, 917516, 13, 0, 917517, 13, 0, 917518, 13, 0, 917519, 13, 0, 917520, 13, 0, 917521, 13, 0, 917522, 13, 0, 917523, 13, 0, 917524, 13, 0, 917528, 13, 0, 917529, 13, 0, 917532, 13, 0, 917533, 13, 0, 917534, 13, 0, 917535, 13, 0, 917539, 13, 0, 917540, 13, 0, 917541, 13, 0, 917542, 13, 0, 917543, 13, 0, 917548, 13, 0, 917549, 4, 0, 917555, 3, 0, 917556, 13, 0, 917557, 13, 0, 917558, 13, 0, 917559, 4, 0, 917585, 10, 0, 983086, 13, 0, 983087, 13, 0, 983088, 13, 0, 983089, 13, 0, 983090, 13, 0, 983096, 13, 0, 983097, 13, 0, 983098, 15, 0, 983121, 10, 0, 1048635, 15, 0, 1048657, 10, 0, 1114172, 13, 0, 1114173, 13, 0, 1114174, 13, 0, 1114175, 13, 0, 1114176, 4, 0, 1114180, 5, 0, 1114185, 3, 0, 1114186, 13, 0, 1114187, 13, 0, 1114188, 13, 0, 1114189, 13, 0, 1114190, 13, 0, 1114191, 13, 0, 1114192, 13, 0, 1179712, 11, 0, 1179716, 12, 0, 1179721, 10, 0, 1245248, 11, 0, 1245252, 12, 0, 1245257, 10, 0, 1310785, 13, 0, 1310786, 13, 0, 1310787, 13, 0, 1310789, 13, 0, 1310790, 13, 0, 1310791, 13, 0, 1310792, 13, 0 )
 
 [node name="Pinchos" type="Node2D" parent="."]
 
 [node name="Grupo1" type="Node2D" parent="Pinchos"]
 
 [node name="Pinchos" parent="Pinchos/Grupo1" instance=ExtResource( 6 )]
-position = Vector2( 328, 256 )
+position = Vector2( 392, 224 )
 
 [node name="Pinchos2" parent="Pinchos/Grupo1" instance=ExtResource( 6 )]
-position = Vector2( 344, 256 )
-
-[node name="Pinchos3" parent="Pinchos/Grupo1" instance=ExtResource( 6 )]
-position = Vector2( 360, 256 )
-
-[node name="Pinchos4" parent="Pinchos/Grupo1" instance=ExtResource( 6 )]
-position = Vector2( 376, 256 )
-
-[node name="Pinchos5" parent="Pinchos/Grupo1" instance=ExtResource( 6 )]
-position = Vector2( 392, 256 )
-
-[node name="Grupo2" type="Node2D" parent="Pinchos"]
-position = Vector2( 112, 0 )
-
-[node name="Pinchos" parent="Pinchos/Grupo2" instance=ExtResource( 6 )]
-position = Vector2( 328, 256 )
-
-[node name="Pinchos2" parent="Pinchos/Grupo2" instance=ExtResource( 6 )]
-position = Vector2( 344, 256 )
-
-[node name="Pinchos3" parent="Pinchos/Grupo2" instance=ExtResource( 6 )]
-position = Vector2( 360, 256 )
-
-[node name="Grupo3" type="Node2D" parent="Pinchos"]
-position = Vector2( 1024, 448 )
-rotation = 3.14159
-
-[node name="Pinchos" parent="Pinchos/Grupo3" instance=ExtResource( 6 )]
-position = Vector2( 328, 256 )
-
-[node name="Pinchos2" parent="Pinchos/Grupo3" instance=ExtResource( 6 )]
-position = Vector2( 344, 256 )
-
-[node name="Pinchos3" parent="Pinchos/Grupo3" instance=ExtResource( 6 )]
-position = Vector2( 360, 256 )
-
-[node name="Pinchos4" parent="Pinchos/Grupo3" instance=ExtResource( 6 )]
-position = Vector2( 311.999, 256.001 )
-
-[node name="Grupo4" type="Node2D" parent="Pinchos"]
-position = Vector2( 400, 0 )
-rotation = 6.28318
-
-[node name="Pinchos" parent="Pinchos/Grupo4" instance=ExtResource( 6 )]
-position = Vector2( 328, 256 )
-
-[node name="Pinchos2" parent="Pinchos/Grupo4" instance=ExtResource( 6 )]
-position = Vector2( 344, 256 )
-
-[node name="Grupo5" type="Node2D" parent="Pinchos"]
-position = Vector2( 496, 0 )
-rotation = 6.28318
-
-[node name="Pinchos" parent="Pinchos/Grupo5" instance=ExtResource( 6 )]
-position = Vector2( 328, 256 )
-
-[node name="Pinchos2" parent="Pinchos/Grupo5" instance=ExtResource( 6 )]
-position = Vector2( 344, 256 )
+position = Vector2( 408, 224 )
 
 [node name="Grupo6" type="Node2D" parent="Pinchos"]
-position = Vector2( 624, 0 )
-rotation = 6.28318
+position = Vector2( 0, -64 )
 
 [node name="Pinchos" parent="Pinchos/Grupo6" instance=ExtResource( 6 )]
-position = Vector2( 328, 256 )
+position = Vector2( 392, 224 )
+rotation = 3.14159
 
 [node name="Pinchos2" parent="Pinchos/Grupo6" instance=ExtResource( 6 )]
-position = Vector2( 344, 256 )
+position = Vector2( 408, 224 )
+rotation = 3.14159
 
-[node name="Grupo7" type="Node2D" parent="Pinchos"]
-position = Vector2( 688, 544 )
-rotation = 4.71238
+[node name="Pinchos3" parent="Pinchos/Grupo6" instance=ExtResource( 6 )]
+position = Vector2( 424, 224 )
+rotation = 3.14159
 
-[node name="Pinchos" parent="Pinchos/Grupo7" instance=ExtResource( 6 )]
-position = Vector2( 328, 256 )
+[node name="Pinchos4" parent="Pinchos/Grupo6" instance=ExtResource( 6 )]
+position = Vector2( 440, 224 )
+rotation = 3.14159
 
-[node name="Pinchos2" parent="Pinchos/Grupo7" instance=ExtResource( 6 )]
-position = Vector2( 344, 256 )
+[node name="Pinchos5" parent="Pinchos/Grupo6" instance=ExtResource( 6 )]
+position = Vector2( 456, 224 )
+rotation = 3.14159
 
-[node name="Grupo8" type="Node2D" parent="Pinchos"]
-position = Vector2( 1232, -128 )
-rotation = 7.85397
+[node name="Pinchos6" parent="Pinchos/Grupo6" instance=ExtResource( 6 )]
+position = Vector2( 472, 224 )
+rotation = 3.14159
 
-[node name="Pinchos" parent="Pinchos/Grupo8" instance=ExtResource( 6 )]
-position = Vector2( 328, 256 )
+[node name="Pinchos7" parent="Pinchos/Grupo6" instance=ExtResource( 6 )]
+position = Vector2( 488, 224 )
+rotation = 3.14159
 
-[node name="Pinchos2" parent="Pinchos/Grupo8" instance=ExtResource( 6 )]
-position = Vector2( 344, 256 )
+[node name="Pinchos8" parent="Pinchos/Grupo6" instance=ExtResource( 6 )]
+position = Vector2( 504, 224 )
+rotation = 3.14159
 
-[node name="Grupo9" type="Node2D" parent="Pinchos"]
-position = Vector2( 256, 0 )
+[node name="Pinchos9" parent="Pinchos/Grupo6" instance=ExtResource( 6 )]
+position = Vector2( 520, 224 )
+rotation = 3.14159
 
-[node name="Pinchos" parent="Pinchos/Grupo9" instance=ExtResource( 6 )]
-position = Vector2( 328, 256 )
+[node name="Grupo2" type="Node2D" parent="Pinchos"]
+position = Vector2( 64, 0 )
 
-[node name="Pinchos2" parent="Pinchos/Grupo9" instance=ExtResource( 6 )]
-position = Vector2( 344, 256 )
+[node name="Pinchos" parent="Pinchos/Grupo2" instance=ExtResource( 6 )]
+position = Vector2( 392, 224 )
 
-[node name="Pinchos3" parent="Pinchos/Grupo9" instance=ExtResource( 6 )]
-position = Vector2( 360, 256 )
+[node name="Pinchos2" parent="Pinchos/Grupo2" instance=ExtResource( 6 )]
+position = Vector2( 408, 224 )
 
-[node name="Efectos" parent="." instance=ExtResource( 8 )]
+[node name="Pinchos3" parent="Pinchos/Grupo2" instance=ExtResource( 6 )]
+position = Vector2( 424, 224 )
 
-[node name="Meta" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1064, 200 )
-siguiente_nivel = ExtResource( 10 )
+[node name="Pinchos4" parent="Pinchos/Grupo2" instance=ExtResource( 6 )]
+position = Vector2( 440, 224 )
 
-[node name="MusicaFondo" parent="." instance=ExtResource( 5 )]
+[node name="Grupo3" type="Node2D" parent="Pinchos"]
+position = Vector2( 360, 16 )
 
-[editable path="Player"]
+[node name="Pinchos" parent="Pinchos/Grupo3" instance=ExtResource( 6 )]
+position = Vector2( 384, 224 )
+
+[node name="Pinchos2" parent="Pinchos/Grupo3" instance=ExtResource( 6 )]
+position = Vector2( 400, 224 )
+
+[node name="Pinchos3" parent="Pinchos/Grupo3" instance=ExtResource( 6 )]
+position = Vector2( 416, 224 )
+
+[node name="Pinchos4" parent="Pinchos/Grupo3" instance=ExtResource( 6 )]
+position = Vector2( 432, 224 )
+
+[node name="Pinchos5" parent="Pinchos/Grupo3" instance=ExtResource( 6 )]
+position = Vector2( 448, 224 )
+
+[node name="Grupo4" type="Node2D" parent="Pinchos"]
+position = Vector2( 664, 96 )
+
+[node name="Pinchos" parent="Pinchos/Grupo4" instance=ExtResource( 6 )]
+position = Vector2( 384, 224 )
+
+[node name="Pinchos2" parent="Pinchos/Grupo4" instance=ExtResource( 6 )]
+position = Vector2( 400, 224 )
+
+[node name="Pinchos3" parent="Pinchos/Grupo4" instance=ExtResource( 6 )]
+position = Vector2( 416, 224 )
+
+[node name="Grupo5" type="Node2D" parent="Pinchos"]
+position = Vector2( 728, 96 )
+
+[node name="Pinchos" parent="Pinchos/Grupo5" instance=ExtResource( 6 )]
+position = Vector2( 384, 224 )
+
+[node name="Pinchos2" parent="Pinchos/Grupo5" instance=ExtResource( 6 )]
+position = Vector2( 400, 224 )
+
+[node name="Pinchos3" parent="Pinchos/Grupo5" instance=ExtResource( 6 )]
+position = Vector2( 416, 224 )
+
+[node name="Pinchos4" parent="Pinchos/Grupo5" instance=ExtResource( 6 )]
+position = Vector2( 432, 224 )
+
+[node name="Enemigos" type="Node2D" parent="."]
+
+[node name="Enemigo" parent="Enemigos" instance=ExtResource( 5 )]
+position = Vector2( 328, 224 )
+
+[node name="Enemigo2" parent="Enemigos" instance=ExtResource( 5 )]
+position = Vector2( 624, 224 )
+
+[node name="Enemigo3" parent="Enemigos" instance=ExtResource( 5 )]
+position = Vector2( 872, 224 )
+
+[node name="Nivel5" parent="." instance=ExtResource( 4 )]
