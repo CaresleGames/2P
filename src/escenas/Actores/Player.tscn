@@ -138,12 +138,11 @@ angular_velocity = 180.0
 angular_velocity_random = 1.0
 scale_amount = 3.5
 
-[node name="Anim" type="AnimationPlayer" parent="."]
-anims/Salto = SubResource( 2 )
-
 [node name="SonidoSalto" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-bus = "Sonidos"
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+anims/Salto = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

@@ -135,6 +135,7 @@ margin_left = -147.0
 margin_top = -38.0
 margin_right = 147.0
 margin_bottom = -12.0
+rect_rotation = -359.999
 text = "2P"
 align = 1
 __meta__ = {
@@ -149,7 +150,7 @@ anchor_bottom = 0.735
 margin_left = 0.160004
 margin_top = -30.184
 margin_right = -0.160004
-margin_bottom = -27.92
+margin_bottom = -28.92
 texture_normal = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false

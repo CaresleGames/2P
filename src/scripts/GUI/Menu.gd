@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 		$Iniciar.emit_signal("pressed")
 	if Input.is_action_just_pressed("ui_salto") and boton_selecionado == 1:
 		$Salir.emit_signal("pressed")
-	
+
  
 
 func _on_Iniciar_pressed() -> void:
@@ -55,3 +55,4 @@ func _on_Iniciar_pressed() -> void:
 func _on_Salir_pressed() -> void:
 	$Salir/Audio.play()
 	get_tree().quit()
+
