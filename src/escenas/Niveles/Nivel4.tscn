@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/escenas/MenuNivel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/MusicaFondo.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/escenas/objetos/Pinchos.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/escenas/BarraNivel/BarraNivel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/escenas/Niveles/Nivel5.tscn" type="PackedScene" id=11]
@@ -31,6 +32,8 @@ position = Vector2( 80, 240 )
 limit_right = 1080
 
 [node name="Nivel4" parent="." instance=ExtResource( 4 )]
+
+[node name="NivelNombre" parent="Nivel4" instance=ExtResource( 7 )]
 
 [node name="Limites" type="Node2D" parent="."]
 

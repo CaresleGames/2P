@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/barra_vidas.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Entrada"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -138, 240 ), Vector2( 0, 239 ) ]
+}
+
+[node name="BarraVidas" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_top = 239.0
+margin_right = 138.0
+margin_bottom = 269.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+anims/Entrada = SubResource( 1 )
