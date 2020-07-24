@@ -1,17 +1,14 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/escenas/Niveles/Nivel2.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/escenas/Niveles/NivelEtiqueta.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/escenas/objetos/GameOver.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/escenas/MenuNivel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/escenas/objetos/Fin.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=10]
 [ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=11]
-[ext_resource path="res://src/escenas/BarraNivel/BarraNivel.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 144, 8 )
@@ -85,20 +82,9 @@ scale = Vector2( 59.9435, 2 )
 [node name="CollisionShape2D" parent="Limites/Fin5" index="1"]
 shape = SubResource( 2 )
 
-[node name="Nivel" parent="." instance=ExtResource( 6 )]
-margin_bottom = 26.0
-
-[node name="Nivel1" type="CanvasLayer" parent="." groups=[
-"canvas_padre",
-]]
-
-[node name="Transicion" parent="Nivel1" instance=ExtResource( 9 )]
-
-[node name="GameOver" parent="Nivel1" instance=ExtResource( 7 )]
-
-[node name="NivelNombre" parent="Nivel1" instance=ExtResource( 12 )]
-
 [node name="Efectos" parent="." instance=ExtResource( 11 )]
+
+[node name="Nivel1" parent="." instance=ExtResource( 6 )]
 
 [editable path="Player"]
 

@@ -1,15 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/escenas/Niveles/NivelEtiqueta.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/escenas/MenuNivel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/escenas/BarraNivel/BarraNivel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/escenas/objetos/GameOver.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/escenas/Niveles/Nivel3.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/escenas/objetos/Fin.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/escenas/GUI/Transicion.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=11]
 
 [node name="Nivel2" type="Node2D"]
@@ -32,21 +29,9 @@ limit_top = 0
 limit_right = 480
 limit_bottom = 270
 
-[node name="Nivel" parent="." instance=ExtResource( 4 )]
-
 [node name="Meta" parent="." instance=ExtResource( 5 )]
 position = Vector2( 304, 168 )
 siguiente_nivel = ExtResource( 8 )
-
-[node name="Nivel2" type="CanvasLayer" parent="." groups=[
-"canvas_padre",
-]]
-
-[node name="Transicion" parent="Nivel2" instance=ExtResource( 10 )]
-
-[node name="GameOver" parent="Nivel2" instance=ExtResource( 7 )]
-
-[node name="NivelNombre" parent="Nivel2" instance=ExtResource( 6 )]
 
 [node name="Limites" type="Node2D" parent="."]
 
@@ -62,5 +47,7 @@ position = Vector2( -8, 96 )
 rotation = -1.57079
 
 [node name="Efectos" parent="." instance=ExtResource( 2 )]
+
+[node name="Nivel2" parent="." instance=ExtResource( 4 )]
 
 [editable path="Player"]
