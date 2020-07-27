@@ -97,4 +97,5 @@ func _reacomodar() -> void:
 
 
 func en_meta() -> void:
+	$Camera2D.emit_signal("zoom_out")
 	set_physics_process(false)

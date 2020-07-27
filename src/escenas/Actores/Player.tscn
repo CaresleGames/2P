@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/player.png" type="Texture" id=1]
 [ext_resource path="res://src/scripts/Actores/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/sfx/jump.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/sfx/Death.wav" type="AudioStream" id=4]
+[ext_resource path="res://src/escenas/Actores/Camera2D.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 4 )
@@ -151,9 +152,12 @@ smoothing_enabled = true
 drag_margin_left = 0.0
 drag_margin_right = 0.0
 editor_draw_drag_margin = true
+script = ExtResource( 5 )
 
 [node name="AnimCam" type="AnimationPlayer" parent="Camera2D"]
 anims/Shake = SubResource( 3 )
+
+[node name="Tween" type="Tween" parent="Camera2D"]
 
 [node name="SonidoMuerte" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

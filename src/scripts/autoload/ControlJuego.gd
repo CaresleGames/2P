@@ -55,8 +55,9 @@ func _process(_delta: float) -> void:
 					enemigo.hide()
 		
 	if Input.is_action_just_pressed("ui_accept"):
-		var value = get_tree().reload_current_scene()
-		print(value)
+#		var value = get_tree().reload_current_scene()
+#		print(value)
+		jugador.en_meta = true
 	
 
 

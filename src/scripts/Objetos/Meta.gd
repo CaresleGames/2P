@@ -4,6 +4,8 @@ export var siguiente_nivel : PackedScene
 
 func _on_Meta_body_entered(_body: KinematicBody2D) -> void:
 	ControlJuego.jugador.en_meta = true
+	yield(ControlJuego.jugador.get_node("Camera2D/Tween"), "tween_completed")
+	yield(get_tree().create_timer(0.2), "timeout")
 	var anim : AnimationPlayer
 	var barra_vidas : Node2D
 	var barra_vidas_anim : AnimationPlayer
