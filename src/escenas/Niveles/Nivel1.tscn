@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/escenas/objetos/Fondo.tscn" type="PackedScene" id=2]
@@ -6,15 +6,8 @@
 [ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/escenas/Niveles/Nivel2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/escenas/MenuNivel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/escenas/objetos/Fin.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=10]
 [ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=11]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 144, 8 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 240, 8 )
 
 [node name="Nivel1" type="Node2D"]
 script = ExtResource( 10 )
@@ -46,50 +39,8 @@ limit_bottom = 270
 position = Vector2( 272, 232 )
 siguiente_nivel = ExtResource( 5 )
 
-[node name="Limites" type="Node2D" parent="."]
-position = Vector2( 104, 0 )
-
-[node name="Fin3" parent="Limites" instance=ExtResource( 8 )]
-position = Vector2( 384, 128 )
-rotation = 1.57079
-
-[node name="Sprite" parent="Limites/Fin3" index="0"]
-position = Vector2( 1.82326, 2.38419e-07 )
-scale = Vector2( 35.6808, 2 )
-
-[node name="CollisionShape2D" parent="Limites/Fin3" index="1"]
-shape = SubResource( 1 )
-
-[node name="Fin4" parent="Limites" instance=ExtResource( 8 )]
-position = Vector2( 136, 280 )
-rotation = 3.14159
-
-[node name="Sprite" parent="Limites/Fin4" index="0"]
-position = Vector2( 0.275784, 2.38419e-07 )
-scale = Vector2( 59.9435, 2 )
-
-[node name="CollisionShape2D" parent="Limites/Fin4" index="1"]
-shape = SubResource( 2 )
-
-[node name="Fin5" parent="Limites" instance=ExtResource( 8 )]
-position = Vector2( -112, 144 )
-rotation = 4.71238
-
-[node name="Sprite" parent="Limites/Fin5" index="0"]
-position = Vector2( 0.275784, 2.38419e-07 )
-scale = Vector2( 59.9435, 2 )
-
-[node name="CollisionShape2D" parent="Limites/Fin5" index="1"]
-shape = SubResource( 2 )
-
 [node name="Efectos" parent="." instance=ExtResource( 11 )]
 
 [node name="Nivel1" parent="." instance=ExtResource( 6 )]
 
 [editable path="Player"]
-
-[editable path="Limites/Fin3"]
-
-[editable path="Limites/Fin4"]
-
-[editable path="Limites/Fin5"]

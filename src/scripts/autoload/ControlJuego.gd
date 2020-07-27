@@ -37,6 +37,9 @@ func _process(_delta: float) -> void:
 	if inicio_juego:
 		if get_tree().get_nodes_in_group("player").size() > 0:
 			jugador = get_tree().get_nodes_in_group("player")[0]
+			if jugador.en_meta:
+				jugador.emit_signal("llegue_meta")
+				jugador.en_meta = false
 		if get_tree().get_nodes_in_group("enemigo").size() > 0:
 			enemigo = get_tree().get_nodes_in_group("enemigo")[0]
 		if get_tree().get_nodes_in_group("pinchos_caen").size() > 0:

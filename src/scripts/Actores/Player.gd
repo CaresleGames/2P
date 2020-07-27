@@ -1,5 +1,6 @@
 extends Actor
 
+signal llegue_meta
 
 export var aceleracion_salto : float = 0
 
@@ -10,6 +11,11 @@ var vidas := vidas_maximas
 var muerto := false
 var snap := Vector2(0, 16)
 var angulo := deg2rad(45)
+var en_meta := false
+
+
+func _ready() -> void:
+	$".".connect("llegue_meta", self, "en_meta")
 
 
 func _physics_process(_delta: float) -> void:
@@ -89,3 +95,6 @@ func _reacomodar() -> void:
 		set_physics_process(true)
 		show()
 
+
+func en_meta() -> void:
+	set_physics_process(false)
