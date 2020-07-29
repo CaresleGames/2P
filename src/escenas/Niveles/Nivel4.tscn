@@ -12,9 +12,6 @@
 
 [node name="Nivel4" type="Node2D"]
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_vertical_guides_": [ 1080.0 ]
-}
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -26,9 +23,6 @@ tile_data = PoolIntArray( 36, 10, 0, 65572, 10, 0, 131108, 10, 0, 196644, 10, 0,
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 80, 240 )
-
-[node name="Camera2D" parent="Player" index="10"]
-limit_right = 1080
 
 [node name="Nivel4" parent="." instance=ExtResource( 4 )]
 
@@ -150,5 +144,3 @@ position = Vector2( 1064, 200 )
 siguiente_nivel = ExtResource( 11 )
 
 [node name="MusicaFondo" parent="." instance=ExtResource( 5 )]
-
-[editable path="Player"]

@@ -11,10 +11,6 @@
 
 [node name="Nivel1" type="Node2D"]
 script = ExtResource( 10 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 270.0, 0.0 ],
-"_edit_vertical_guides_": [ 480.0, 0.0 ]
-}
 
 [node name="Fondo" parent="." instance=ExtResource( 2 )]
 
@@ -29,12 +25,6 @@ tile_data = PoolIntArray( -131065, 14, 0, -131064, 14, 0, -131063, 14, 0, -13106
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 136, 176 )
 
-[node name="Camera2D" parent="Player" index="10"]
-limit_left = 0
-limit_top = 0
-limit_right = 480
-limit_bottom = 270
-
 [node name="Meta" parent="." instance=ExtResource( 4 )]
 position = Vector2( 272, 232 )
 siguiente_nivel = ExtResource( 5 )
@@ -42,5 +32,3 @@ siguiente_nivel = ExtResource( 5 )
 [node name="Efectos" parent="." instance=ExtResource( 11 )]
 
 [node name="Nivel1" parent="." instance=ExtResource( 6 )]
-
-[editable path="Player"]

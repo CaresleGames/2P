@@ -9,6 +9,6 @@ func _ready() -> void:
 
 func _en_zoom_out() -> void:
 	$Tween.interpolate_property(self, "zoom", Vector2(1, 1),
-			Vector2(0.1, 0.1), 1, 
-			Tween.TRANS_LINEAR, Tween.EASE_OUT)
+			Vector2(0.25, 0.25), .5, 
+			Tween.TRANS_EXPO, Tween.EASE_OUT)
 	$Tween.start()

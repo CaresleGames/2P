@@ -9,6 +9,7 @@ signal cambio_nivel_siguiente
 var jugador : KinematicBody2D
 var enemigo : KinematicBody2D
 var pinchos : Array
+var temporizador : Node2D
 var gui_gameover 
 var inicio_juego := false
 var vidas_jugador : int
@@ -46,6 +47,8 @@ func _process(_delta: float) -> void:
 			pinchos = get_tree().get_nodes_in_group("pinchos_caen")
 		if get_tree().get_nodes_in_group("game_over").size() > 0:
 			gui_gameover = get_tree().get_nodes_in_group("game_over")[0]
+		if get_tree().get_nodes_in_group("BarraTiempo").size() > 0:
+			temporizador = get_tree().get_nodes_in_group("BarraTiempo")[0]
 		if get_tree().get_nodes_in_group("player").size() > 0:
 			if  jugador.vidas <= 0:
 				gui_gameover.show()
