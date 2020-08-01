@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/font/fuente_theme.tres" type="Theme" id=1]
 [ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/escenas/Creditos.gd" type="Script" id=3]
+[ext_resource path="res://src/MusicaFondo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/music/placeholder/Juhani Junkala [Retro Game Music Pack] Title Screen.ogg" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "UP"
@@ -85,4 +87,7 @@ anims/UP = SubResource( 1 )
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="MusicaFondo" parent="." instance=ExtResource( 4 )]
+stream = ExtResource( 5 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

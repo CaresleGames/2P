@@ -69,6 +69,7 @@ tracks/1/keys = {
 [node name="Temporizador" type="Node2D" groups=[
 "BarraTiempo",
 ]]
+visible = false
 script = ExtResource( 3 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -86,7 +87,7 @@ margin_right = 202.0
 margin_bottom = 26.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "00"
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Juhani Junkala [Retro Game Music Pack] Level 1.ogg-2
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

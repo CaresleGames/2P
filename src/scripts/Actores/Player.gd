@@ -12,6 +12,7 @@ var muerto := false
 var snap := Vector2(0, 16)
 var angulo := deg2rad(45)
 var en_meta := false
+var puedo_mover := false
 
 
 func _ready() -> void:
@@ -19,7 +20,8 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	mover()
+	if puedo_mover:
+		mover()
 
 
 func mover() -> void:

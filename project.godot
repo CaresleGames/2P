@@ -28,6 +28,7 @@ config/icon="res://icono.png"
 
 Colores="*res://src/scripts/autoload/Colores.gd"
 ControlJuego="*res://src/scripts/autoload/ControlJuego.gd"
+BackgroundMusic="*res://src/escenas/BackgroundMusic.tscn"
 
 [display]
 

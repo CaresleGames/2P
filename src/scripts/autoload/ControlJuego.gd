@@ -36,6 +36,8 @@ func _process(_delta: float) -> void:
 		sonido_muteado = not sonido_muteado
 		AudioServer.set_bus_mute(2, sonido_muteado)
 	if inicio_juego:
+		if get_tree().get_nodes_in_group("BarraTiempo").size() > 0:
+			temporizador = get_tree().get_nodes_in_group("BarraTiempo")[0]
 		if get_tree().get_nodes_in_group("player").size() > 0:
 			jugador = get_tree().get_nodes_in_group("player")[0]
 			if jugador.en_meta:
@@ -47,8 +49,6 @@ func _process(_delta: float) -> void:
 			pinchos = get_tree().get_nodes_in_group("pinchos_caen")
 		if get_tree().get_nodes_in_group("game_over").size() > 0:
 			gui_gameover = get_tree().get_nodes_in_group("game_over")[0]
-		if get_tree().get_nodes_in_group("BarraTiempo").size() > 0:
-			temporizador = get_tree().get_nodes_in_group("BarraTiempo")[0]
 		if get_tree().get_nodes_in_group("player").size() > 0:
 			if  jugador.vidas <= 0:
 				gui_gameover.show()
@@ -56,7 +56,9 @@ func _process(_delta: float) -> void:
 				jugador.hide()
 				if get_tree().get_nodes_in_group("enemigo").size() > 0:
 					enemigo.hide()
-		
+		if get_tree().get_nodes_in_group("BarraTiempo").size() > 0: 
+			if ControlJuego.temporizador.tiempo_iniciado:
+				ControlJuego.jugador.puedo_mover = true
 	if Input.is_action_just_pressed("ui_accept"):
 #		var value = get_tree().reload_current_scene()
 #		print(value)

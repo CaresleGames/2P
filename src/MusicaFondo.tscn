@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/music/placeholder/Juhani Junkala [Retro Game Music Pack] Level 2.ogg" type="AudioStream" id=1]
 [ext_resource path="res://src/MusicaFondo.gd" type="Script" id=2]
 
 [node name="MusicaFondo" type="AudioStreamPlayer"]
-stream = ExtResource( 1 )
+autoplay = true
 bus = "BackgroundMusic"
 script = ExtResource( 2 )

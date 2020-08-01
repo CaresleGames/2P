@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
 [ext_resource path="res://src/scripts/Nivel.gd" type="Script" id=2]
 [ext_resource path="res://src/escenas/Actores/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/escenas/MenuNivel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/MusicaFondo.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/escenas/objetos/Pinchos.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/escenas/Efectos.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/escenas/objetos/Meta.tscn" type="PackedScene" id=9]
@@ -142,5 +141,3 @@ position = Vector2( 360, 256 )
 [node name="Meta" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1064, 200 )
 siguiente_nivel = ExtResource( 11 )
-
-[node name="MusicaFondo" parent="." instance=ExtResource( 5 )]

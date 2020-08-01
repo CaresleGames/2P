@@ -141,6 +141,7 @@ scale_amount = 3.5
 
 [node name="SonidoSalto" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+bus = "Sonidos"
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 anims/Salto = SubResource( 2 )

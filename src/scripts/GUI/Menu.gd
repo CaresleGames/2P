@@ -27,11 +27,15 @@ func _process(delta: float) -> void:
 			boton_selecionado = 1
 	
 	if boton_selecionado == 0:
-		$Iniciar.texture_normal = texture_normal_focus
-		$Salir.texture_normal = texture_normal
+#		$Iniciar.texture_normal = texture_normal_focus
+#		$Salir.texture_normal = texture_normal
+		$Iniciar/Label.self_modulate = Colores.COLOR_JUGADOR
+		$Salir/Label.self_modulate = Color("#FFFFFF")
 	else:
-		$Iniciar.texture_normal = texture_normal
-		$Salir.texture_normal = texture_normal_focus
+#		$Iniciar.texture_normal = texture_normal
+#		$Salir.texture_normal = texture_normal_focus
+		$Iniciar/Label.self_modulate = Color("#ffffff")
+		$Salir/Label.self_modulate = Colores.COLOR_ENEMIGO
 	
 	if Input.is_action_just_pressed("ui_salto") and boton_selecionado == 0:
 		$Iniciar.emit_signal("pressed")
@@ -55,4 +59,6 @@ func _on_Iniciar_pressed() -> void:
 func _on_Salir_pressed() -> void:
 	$Salir/Audio.play()
 	get_tree().quit()
+
+
 

@@ -4,6 +4,7 @@ var pantalla_gameover : bool = false
 
 func _ready() -> void:
 	$".".hide()
+	$Button/Label.self_modulate = Colores.COLOR_JUGADOR
 
 
 func _process(_delta: float) -> void:
