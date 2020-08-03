@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/objetos/Fin/Fin.gd" type="Script" id=1]
+[ext_resource path="res://assets/player.png" type="Texture" id=2]
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 240, 8 )
+
+[node name="Fin" type="Area2D"]
+modulate = Color( 0.647059, 0.12549, 0.835294, 1 )
+position = Vector2( -1, 0 )
+monitorable = false
+collision_layer = 16
+collision_mask = 5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.500015, 2.38419e-07 )
+scale = Vector2( 60.125, 2 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_Fin_body_entered"]

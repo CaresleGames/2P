@@ -1,7 +1,0 @@
-[gd_scene format=2]
-
-[node name="Fondo" type="Node2D"]
-
-[node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.0941176, 0.0784314, 0.145098, 1 )
-centered = false

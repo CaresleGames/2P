@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "KinematicBody2D",
+"base": "Reference",
 "class": "Actor",
 "language": "GDScript",
-"path": "res://src/scripts/Actores/Actor.gd"
+"path": "res://src/Actores/Actor.gd"
 } ]
 _global_script_class_icons={
 "Actor": ""
@@ -21,14 +21,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Plataformero"
-run/main_scene="res://src/escenas/Intro.tscn"
+run/main_scene="res://src/InicioFinal/Intro/Intro.tscn"
 config/icon="res://icono.png"
 
 [autoload]
 
-Colores="*res://src/scripts/autoload/Colores.gd"
-ControlJuego="*res://src/scripts/autoload/ControlJuego.gd"
-BackgroundMusic="*res://src/escenas/BackgroundMusic.tscn"
+Colores="*res://src/autoload/Colores.gd"
+ControlJuego="*res://src/autoload/ControlJuego.gd"
+BackgroundMusic="*res://src/Musica/BackgroundMusic/BackgroundMusic.tscn"
 
 [display]
 
