@@ -16,11 +16,22 @@ var puedo_mover := false
 
 onready var sonido_salto : AudioStreamPlayer = $Sonidos/SonidoSalto
 onready var sonido_muerte : AudioStreamPlayer = $Sonidos/SonidoMuerte
+
 onready var raycast_izquierdo : RayCast2D = $RaycastPlayer/Izquierda
 onready var raycast_centro : RayCast2D = $RaycastPlayer/Centro
 onready var raycast_derecha : RayCast2D = $RaycastPlayer/Derecha
+
 onready var timer_coyote_jump : Timer = $Timers/CoyoteJump
 onready var timer_tiempo_salto : Timer = $Timers/TiempoSalto
+
+onready var anim : AnimationPlayer = $Anim
+
+onready var camara : Camera2D = $Camera2D
+
+onready var player_sprite : Sprite = $SprPlayer
+onready var player_colision : CollisionShape2D = $CollisionShape2D
+
+onready var particulas_muerte : CPUParticles2D = $ParticulasMuerte
 
 
 func _ready() -> void:
@@ -73,14 +84,14 @@ func mover_y() -> void:
 		if Input.is_action_just_pressed("ui_salto"):
 			movimiento.y = -salto
 			sonido_salto.play()
-			$Anim.play("Salto")
+			anim.play("Salto")
 	if Input.is_action_just_pressed("ui_salto"):
 		if puedo_saltar and is_on_floor():
 			movimiento.y = -salto
 			snap = Vector2(0, 0)
 			timer_tiempo_salto.start()
 			sonido_salto.play()
-			$Anim.play("Salto")
+			anim.play("Salto")
 	if Input.is_action_pressed("ui_salto"):
 		if not timer_tiempo_salto.is_stopped():
 			movimiento.y = -aceleracion_salto
@@ -90,13 +101,13 @@ func _reacomodar() -> void:
 	sonido_muerte.play()
 	if muerto:
 		set_physics_process(false)
-		$Camera2D/AnimCam.play("Shake")
-		$CollisionShape2D.call_deferred("disabled", true)
-		$SprPlayer.hide()
-		$ParticulasMuerte.emitting = true
+		camara.get_node("AnimCam").play("Shake")
+		player_colision.call_deferred("disabled", true)
+		player_sprite.hide()
+		particulas_muerte.emitting = true
 		yield(get_tree().create_timer(1), "timeout")
-		$SprPlayer.show()
-		$CollisionShape2D.call_deferred("disabled", false)
+		player_sprite.show()
+		player_colision.call_deferred("disabled", false)
 		muerto = false
 	position = coordenas_inicio
 	vidas -= 1
@@ -107,5 +118,5 @@ func _reacomodar() -> void:
 
 
 func en_meta() -> void:
-	$Camera2D.emit_signal("zoom_out")
+	camara.emit_signal("zoom_out")
 	set_physics_process(false)
