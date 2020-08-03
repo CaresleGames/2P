@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sfx/jump.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/sfx/Death.wav" type="AudioStream" id=2]
+
+[node name="Sonidos" type="Node2D"]
+
+[node name="SonidoSalto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "Sonidos"
+
+[node name="SonidoMuerte" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "Sonidos"

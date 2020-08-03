@@ -2,6 +2,10 @@ extends Actor
 
 var vivo := true
 
+onready var timer_tiempo_raycast : Timer = $TimerRaycast/TiempoRaycast
+onready var timer_reactivar_raycast : Timer = $TimerRaycast/ReactivarRaycast
+onready var raycast_direccion : RayCast2D = $RayCastDireccion
+
 func _ready() -> void:
 	direccion = -1
 
@@ -21,8 +25,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			movimiento.x = max(movimiento.x - aceleracion, -velocidad)
 		movimiento = move_and_slide(movimiento, SUELO)
-		if not $RayCast2D.is_colliding() and $RayCast2D.enabled:
-			$TiempoRaycast.start()
+		if not raycast_direccion.is_colliding() and raycast_direccion.enabled:
+			timer_tiempo_raycast.start()
 
 
 func _on_JugadorMuerte_body_entered(body: Node) -> void:
@@ -45,15 +49,15 @@ func muerte_pinchos() -> void:
 
 
 func _on_TiempoRaycast_timeout() -> void:
-	$RayCast2D.enabled = false
+	raycast_direccion.enabled = false
 	direccion *= -1
 	if direccion == 1:
-		$RayCast2D.position = Vector2(3, 0)
+		raycast_direccion.position = Vector2(3, 0)
 	else:
-		$RayCast2D.position = Vector2(-3, 0)
-	$ReactivarRaycast.start()
+		raycast_direccion.position = Vector2(-3, 0)
+	timer_reactivar_raycast.start()
 
 
 func _on_ReactivarRaycast_timeout() -> void:
-	$RayCast2D.enabled = true
+	raycast_direccion.enabled = true
 

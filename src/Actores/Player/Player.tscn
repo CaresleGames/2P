@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/player.png" type="Texture" id=1]
 [ext_resource path="res://src/Actores/Player/Player.gd" type="Script" id=2]
-[ext_resource path="res://assets/sfx/jump.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/sfx/Death.wav" type="AudioStream" id=4]
+[ext_resource path="res://src/Actores/Player/Sonidos/Sonidos.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Actores/Player/RayCastPlayer/RaycastPlayer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Actores/Player/Camara/Camera2D.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Actores/Player/Timers/Timers.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 4 )
@@ -79,31 +80,6 @@ texture = ExtResource( 1 )
 position = Vector2( 0, -4 )
 shape = SubResource( 1 )
 
-[node name="CoyoteJump" type="Timer" parent="."]
-wait_time = 0.18
-one_shot = true
-
-[node name="TiempoSalto" type="Timer" parent="."]
-wait_time = 0.3
-one_shot = true
-
-[node name="Izquierda" type="RayCast2D" parent="."]
-position = Vector2( -4, 0 )
-enabled = true
-cast_to = Vector2( 0, 4 )
-collision_mask = 8
-
-[node name="Centro" type="RayCast2D" parent="."]
-enabled = true
-cast_to = Vector2( 0, 4 )
-collision_mask = 8
-
-[node name="Derecha" type="RayCast2D" parent="."]
-position = Vector2( 4, 0 )
-enabled = true
-cast_to = Vector2( 0, 4 )
-collision_mask = 8
-
 [node name="ParticulasMuerte" type="CPUParticles2D" parent="."]
 position = Vector2( 0, -4 )
 emitting = false
@@ -123,15 +99,13 @@ angular_velocity = 180.0
 angular_velocity_random = 1.0
 scale_amount = 3.5
 
-[node name="SonidoSalto" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-bus = "Sonidos"
-
 [node name="Anim" type="AnimationPlayer" parent="."]
 anims/Salto = SubResource( 2 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 5 )]
 
-[node name="SonidoMuerte" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-bus = "Sonidos"
+[node name="Sonidos" parent="." instance=ExtResource( 3 )]
+
+[node name="RaycastPlayer" parent="." instance=ExtResource( 4 )]
+
+[node name="Timers" parent="." instance=ExtResource( 6 )]

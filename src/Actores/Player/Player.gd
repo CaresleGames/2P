@@ -14,6 +14,14 @@ var angulo := deg2rad(45)
 var en_meta := false
 var puedo_mover := false
 
+onready var sonido_salto : AudioStreamPlayer = $Sonidos/SonidoSalto
+onready var sonido_muerte : AudioStreamPlayer = $Sonidos/SonidoMuerte
+onready var raycast_izquierdo : RayCast2D = $RaycastPlayer/Izquierda
+onready var raycast_centro : RayCast2D = $RaycastPlayer/Centro
+onready var raycast_derecha : RayCast2D = $RaycastPlayer/Derecha
+onready var timer_coyote_jump : Timer = $Timers/CoyoteJump
+onready var timer_tiempo_salto : Timer = $Timers/TiempoSalto
+
 
 func _ready() -> void:
 	$".".connect("llegue_meta", self, "en_meta")
@@ -35,9 +43,9 @@ func mover() -> void:
 		else:
 			movimiento.x = lerp(movimiento.x, 0, friccion)
 	mover_y()
-	$Izquierda.force_raycast_update()
-	$Centro.force_raycast_update()
-	$Derecha.force_raycast_update()
+	raycast_izquierdo.force_raycast_update()
+	raycast_centro.force_raycast_update()
+	raycast_derecha.force_raycast_update()
 	movimiento = move_and_slide_with_snap(movimiento,
 			 snap, SUELO, true, 4, angulo, false)  
 
@@ -51,35 +59,35 @@ func mover_y() -> void:
 		snap = Vector2(0, 16)
 		puedo_saltar = true
 	
-	if not is_on_floor() and $Izquierda.is_colliding() and not $Centro.is_colliding() and not $Derecha.is_colliding() and not is_on_wall():
-		$CoyoteJump.start()
-	if not is_on_floor() and not $Izquierda.is_colliding() and not $Centro.is_colliding() and $Derecha.is_colliding() and not is_on_wall():
-		$CoyoteJump.start()
+	if not is_on_floor() and raycast_izquierdo.is_colliding() and not raycast_centro.is_colliding() and not raycast_derecha.is_colliding() and not is_on_wall():
+		timer_coyote_jump.start()
+	if not is_on_floor() and not raycast_izquierdo.is_colliding() and not raycast_centro.is_colliding() and raycast_derecha.is_colliding() and not is_on_wall():
+		timer_coyote_jump.start()
 		
-	if not $CoyoteJump.is_stopped():
+	if not timer_coyote_jump.is_stopped():
 		if Input.is_action_just_pressed("ui_salto"):
 			movimiento.y = -salto
-			$CoyoteJump.stop()
-	if $Izquierda.is_colliding() and $Centro.is_colliding() and $Derecha.is_colliding():
+			timer_coyote_jump.stop()
+	if raycast_izquierdo.is_colliding() and raycast_centro.is_colliding() and raycast_derecha.is_colliding():
 		puedo_saltar = true
 		if Input.is_action_just_pressed("ui_salto"):
 			movimiento.y = -salto
-			$SonidoSalto.play()
+			sonido_salto.play()
 			$Anim.play("Salto")
 	if Input.is_action_just_pressed("ui_salto"):
 		if puedo_saltar and is_on_floor():
 			movimiento.y = -salto
 			snap = Vector2(0, 0)
-			$TiempoSalto.start()
-			$SonidoSalto.play()
+			timer_tiempo_salto.start()
+			sonido_salto.play()
 			$Anim.play("Salto")
 	if Input.is_action_pressed("ui_salto"):
-		if not $TiempoSalto.is_stopped():
+		if not timer_tiempo_salto.is_stopped():
 			movimiento.y = -aceleracion_salto
 
 
 func _reacomodar() -> void:
-	$SonidoMuerte.play()
+	sonido_muerte.play()
 	if muerto:
 		set_physics_process(false)
 		$Camera2D/AnimCam.play("Shake")
