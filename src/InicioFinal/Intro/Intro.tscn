@@ -9,8 +9,6 @@
 [ext_resource path="res://src/GUI/Menu/Menu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/GlowEfectos/Efectos.tscn" type="PackedScene" id=8]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "Salida"
 length = 0.5
