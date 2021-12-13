@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/TileMaps/tileset0.tres" type="TileSet" id=1]
+[ext_resource path="res://src/GlowEfectos/Efectos.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Actores/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/GUI/MenuNivel/MenuNivel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/objetos/Meta/Meta.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Niveles/Nivel3.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/objetos/Fin/Fin.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Niveles/Nivel.gd" type="Script" id=11]
+
+
+
+
+
+
+
+
+[node name="Nivel2" type="Node2D"]
+script = ExtResource( 11 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 8
+collision_mask = 5
+format = 1
+tile_data = PoolIntArray( 589839, 5, 0, 655369, 5, 0, 655372, 5, 0, 655375, 12, 0, 655380, 5, 0, 720905, 7, 0, 720906, 1, 0, 720907, 1, 0, 720908, 14, 0, 720909, 1, 0, 720910, 1, 0, 720911, 14, 0, 720912, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 1, 0, 720916, 8, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 176, 176 )
+
+[node name="Camera2D" parent="Player" index="10"]
+limit_left = 0
+limit_top = 0
+limit_right = 480
+limit_bottom = 270
+
+[node name="Meta" parent="." instance=ExtResource( 5 )]
+position = Vector2( 304, 168 )
+siguiente_nivel = ExtResource( 8 )
+
+[node name="Limites" type="Node2D" parent="."]
+
+[node name="Fin" parent="Limites" instance=ExtResource( 9 )]
+position = Vector2( 240, 280 )
+
+[node name="Fin2" parent="Limites" instance=ExtResource( 9 )]
+position = Vector2( 488, 88 )
+rotation = -1.57079
+
+[node name="Fin3" parent="Limites" instance=ExtResource( 9 )]
+position = Vector2( -8, 96 )
+rotation = -1.57079
+
+[node name="Efectos" parent="." instance=ExtResource( 2 )]
+
+[node name="Nivel2" parent="." instance=ExtResource( 4 )]
+
+[editable path="Player"]

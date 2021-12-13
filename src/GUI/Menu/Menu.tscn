@@ -1,0 +1,313 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://src/GUI/Menu/Menu.gd" type="Script" id=1]
+[ext_resource path="res://src/Niveles/Nivel1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/font/fuente_theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/font/fuente.tres" type="DynamicFont" id=4]
+[ext_resource path="res://src/GUI/MenuNivel/Transicion/Transicion.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/font/Mystery Font.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://src/GlowEfectos/Efectos.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/sfx/confirmation_004.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/sfx/drop_004.ogg" type="AudioStream" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+extra_spacing_top = 10
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+extra_spacing_top = 10
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=3]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 272 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Titulo:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 93, 128 ), Vector2( 93, 98 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Iniciar/Label:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Iniciar:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 112, 169 ), Vector2( 112, 139 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Salir/Label:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Salir:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 256, 168 ), Vector2( 256, 138 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Version:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 280, 246 ), Vector2( 280, 246 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Titulo:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 93, 98 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Iniciar/Label:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Iniciar:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 112, 139 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Salir/Label:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Salir:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 256, 138 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Version:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 280, 246 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Titulo:custom_fonts/font:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 16, 32, 16 ]
+}
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 2.0
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+siguiente_escena = ExtResource( 2 )
+
+[node name="Titulo" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -147.0
+margin_top = -38.0
+margin_right = 147.0
+margin_bottom = 36.0
+rect_rotation = -359.999
+custom_fonts/font = SubResource( 1 )
+text = "2P"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Iniciar" type="TextureButton" parent="."]
+anchor_left = 0.233
+anchor_top = 0.622
+anchor_right = 0.467
+anchor_bottom = 0.735
+margin_left = 0.160004
+margin_top = -30.184
+margin_right = -0.160004
+margin_bottom = -28.92
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Iniciar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -6.00002
+custom_fonts/font = SubResource( 2 )
+text = "Iniciar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Audio" type="AudioStreamPlayer" parent="Iniciar"]
+stream = ExtResource( 9 )
+bus = "Sonidos"
+
+[node name="Salir" type="TextureButton" parent="."]
+anchor_left = 0.533
+anchor_top = 0.618
+anchor_right = 0.767
+anchor_bottom = 0.743
+margin_left = 0.160004
+margin_top = -30.096
+margin_right = -0.159973
+margin_bottom = -32.096
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Salir"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 4 )
+text = "Salir"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Audio" type="AudioStreamPlayer" parent="Salir"]
+stream = ExtResource( 9 )
+bus = "Sonidos"
+
+[node name="Transicion" parent="." instance=ExtResource( 6 )]
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+autoplay = "Entrada"
+anims/Entrada = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+
+[node name="Efectos" parent="." instance=ExtResource( 8 )]
+
+[node name="Version" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 280.0
+margin_top = -26.0
+margin_right = 470.0
+text = "Version 0.2.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CambiarOpcion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+[connection signal="pressed" from="Iniciar" to="." method="_on_Iniciar_pressed"]
+[connection signal="pressed" from="Salir" to="." method="_on_Salir_pressed"]
