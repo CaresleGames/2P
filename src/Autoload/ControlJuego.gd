@@ -14,7 +14,6 @@ var gui_gameover
 var inicio_juego := false
 var vidas_jugador : int
 var niveles : int = 0
-var environment_actual : Environment = load("res://src/escenas/GlowEfectos/Efecto1.tres")
 
 # Variables temporales
 var sonido_muteado := false

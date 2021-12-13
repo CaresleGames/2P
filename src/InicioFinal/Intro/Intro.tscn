@@ -168,4 +168,5 @@ __meta__ = {
 }
 
 [node name="Efectos" parent="." instance=ExtResource( 8 )]
+
 [connection signal="animation_finished" from="Anim" to="." method="_on_Anim_animation_finished"]
